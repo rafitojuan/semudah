@@ -1,0 +1,335 @@
+body {
+    overflow-x: hidden ;
+}
+
+.navtext {
+    margin-left: -20px;
+}
+
+.border {
+    border: 1px solid #4FA3C6;
+    border-radius: 15px;
+    background-color: #4FA3C6;
+}
+
+/* .navlink {
+    color : white;
+} */
+
+.landpict {
+    position: absolute;
+}
+
+.navv {
+        background-color:transparent;
+}
+
+.landh1 {
+    margin-top: -900px;
+    color : white;
+    position: absolute;
+    font-size : 80px;
+
+
+}
+
+.cardd {
+    position: absolute;
+    width: 300vh;
+    height: 350vh;
+    margin-top: -300px;
+    background-color: #003974;
+}
+
+.cardh1 {
+    color: white;
+    margin-left: 550px;
+    margin-top: 100px;
+}
+
+.cardp {
+    color: #FFFFFF99;
+    margin-left: 450px;
+
+}
+
+.cardd2 {
+    position: absolute;
+    width: 221vh;
+    height: 800px;
+    margin-top: 500px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.carddh1 {
+    color: black;
+    margin-left: 550px;
+    margin-top: 300px;
+}
+
+.carddp {
+    color: #8D8D8D;
+    margin-left: 470px;
+
+}
+
+.purple {
+    width: 250px;
+    height: 200px;
+    background-color: #BF40BF;
+    color: white;
+    font-weight: bold;
+}
+
+.orange {
+    width: 250px;
+    height: 200px;
+    background-color: #FFAB00;
+    color: white;
+    font-weight: bold;
+}
+
+.green {
+    width: 250px;
+    height: 200px;
+    background-color: #36B37E;
+    color: white;
+    font-weight: bold;
+}
+
+.red {
+    width: 250px;
+    height: 200px;
+    background-color: #FF5630;
+    color: white;
+    font-weight: bold;
+}
+
+.cardlogin {
+    margin-top: -30px;
+}
+
+.logh5 {
+    margin-left: 30px;
+}
+
+.cardlogin {
+    margin-top: -120px;
+}
+
+.cardlayanan {
+    margin-top: -120px;
+    margin-left: 10px;
+}
+
+.cardform {
+    margin-top: -120px;
+    margin-top: 10px;
+}
+
+.cardpembayaran {
+    margin-top: -120px;
+    margin-top: 10px;
+}
+
+.logh5 {
+  margin-left: 20px;
+}
+
+.h1why {
+    color: white;
+    font-size: 50px;
+}
+
+
+.cardform {
+    margin-top: -120px;
+    margin-top: 10px;
+}
+
+.cardpembayaran {
+    margin-top: -120px;
+    margin-top: 10px;
+}
+
+.h1why {
+    color: white;
+    font-size: 50px;
+    margin-top: 1380px;
+    position: absolute;
+    margin-left: 370px;
+}
+
+.imgkonsul {
+  margin-top: -600px;
+  margin-left:40px;
+  position: absolute;
+}
+
+.h5konsul{
+  margin-top:-250px;
+  color:white;
+  margin-left:150px;
+}
+
+.pkonsul {
+  color: white;
+  margin-top: 30px;
+  margin-left: -150px;
+  text-align: center;
+}
+
+.imgprof {
+  margin-top: -600px;
+  margin-left:-120px;
+  position: absolute;
+}
+
+.h5prof{
+  margin-top:-250px;
+  color:white;
+  margin-left: -30px;
+}
+
+.pprof {
+  color: white;
+  margin-top: 30px;
+  margin-left: -450px;
+  text-align: center;
+}
+
+.imgmurah {
+  margin-top: -600px;
+  margin-left: -300px;
+  position: absolute;
+}
+
+.h5murah{
+  margin-top:-250px;
+  color:white;
+  margin-left:-220px;
+}
+
+.pmurah {
+  color: white;
+  margin-top: 30px;
+  margin-left: -820px;
+  text-align: center;
+}
+
+.roww {
+  margin-top: -250px;
+  position: absolute;
+
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 350px;
+  height: 454px;
+  perspective: 1000px;
+  font-family: sans-serif;
+  margin-left: 80px;
+}
+
+.fcard2 {
+  background-color: transparent;
+  width: 350px;
+  height: 454px;
+  perspective: 1000px;
+  font-family: sans-serif;
+  margin-left: 40px;
+}
+
+.fcard3 {
+  background-color: transparent;
+  width: 350px;
+  height: 454px;
+  perspective: 1000px;
+  font-family: sans-serif;
+  margin-left: 40px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px ;
+  border-radius: 30px;
+}
+
+/* .flip-card-front {
+  background: linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%,
+     rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%);
+  color: coral;
+} */
+
+.flip-card-back {
+  background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%,
+     bisque 40%, rgb(255, 185, 160) 78%);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+.cardfuter {
+  margin-top: 400vh;
+}
+
+.cardfuter {
+  margin-top: 300vh;
+  height: 550px;
+}
+
+.logofooter{
+  margin-top: 80px;
+  margin-left: -10px;
+}
+
+.cardpayment {
+  margin-top: -110px;
+}
+
+.colfuter {
+  margin-left: -10px;
+}
+
+.hrfooter {
+  border: 1px solid #262626;
+  margin-top:40px;
+}
+
+.h6footer {
+  margin-left : 250px;
+}
+
+.collayanan {
+  margin-left:40px;
+}
