@@ -20,7 +20,7 @@ session_start();
 
 <body>
 
-    <div class="hero bg-landing vh-100 position-relative">
+    <div class="hero bg-landing vh-100 position-relative" data-aos="fade" data-aos-duration="2000">
         <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
         <?php
         if (isset($_SESSION['login'])) {
@@ -32,7 +32,7 @@ session_start();
         ?>
         <div class="position-absolute top-50 translate-middle-y mw-100 hero-content">
             <div class="px-5">
-                <h1 class="text-white fw-bold" style="letter-spacing: 5px;">Dengan <span class="text-info">Semudah</span> Semua Jadi Lebih Mudah</h1>
+                <h1 class="text-white fw-bold" style="letter-spacing: 5px;" data-aos="fade-right" data-aos-duration="1000">Dengan <span class="text-info">Semudah</span> Semua Jadi Lebih Mudah</h1>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@ session_start();
                         <div class="position-absolute pe-4" style="bottom: 30px">
                             <h5>Instalasi dan Aktivasi</h5>
                             <p>Melayani instalasi windows dan aktivasi office original.</p>
-                            <a href="" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-instalasi.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>

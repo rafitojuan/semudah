@@ -20,12 +20,7 @@ if (isset($_POST['login'])) {
             </script>
             ";
         } else {
-            echo "
-                <script>
-                alert('Password salah');
-                document.location.href ='login.php'
-                </script>
-                ";
+            $_SESSION["salah"] = "gagal Login";
         }
     } else {
         echo "

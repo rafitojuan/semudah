@@ -39,7 +39,7 @@ session_start();
                         <div class="position-absolute pe-4" style="bottom: 30px">
                             <h5>Instalasi dan Aktivasi</h5>
                             <p>Melayani instalasi windows dan aktivasi office original.</p>
-                            <a href="" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-instalasi.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>

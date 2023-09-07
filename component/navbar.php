@@ -1,5 +1,5 @@
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="nav">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="nav" data-aos="fade">
     <div class="container">
       <a class="navbar-brand navtext" href="#">
         <img src="user/asset/img/logo-semudah1.png" alt="" width="140" height="28"></a>
