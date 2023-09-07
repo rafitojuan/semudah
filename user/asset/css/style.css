@@ -226,6 +226,14 @@
   width: 100%;
 }
 
+
+.bg-layanan-service-handphone{
+  background-image: url("../img/service-handphone.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 /* KEYFRAMES AREA!!! */
 @keyframes navScrolled {
   0% {
