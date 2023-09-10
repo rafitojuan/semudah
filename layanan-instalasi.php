@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+<<<<<<< HEAD
+=======
+$_SESSION['layanan'] = true;
+
+
+>>>>>>> 377af37 (pengkondisian navbar layanan)
 if (!isset($_SESSION['login'])) {
   echo "
         <script>
@@ -10,6 +16,11 @@ if (!isset($_SESSION['login'])) {
         ";
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 377af37 (pengkondisian navbar layanan)
 ?>
 
 
@@ -32,8 +43,13 @@ if (!isset($_SESSION['login'])) {
   <div class="hero bg-instalasi position-relative" style="height: 50vh;">
     <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
     <?php
+<<<<<<< HEAD
     if (isset($_SESSION['login'])) {
       include 'component/navbar-login.php';
+=======
+    if (isset($_SESSION['layanan'])) {
+      include 'component/navbar-layanan.php';
+>>>>>>> 377af37 (pengkondisian navbar layanan)
     } else {
       include 'component/navbar.php';
     }

@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< HEAD
 
+=======
+unset($_SESSION['layanan']);
+>>>>>>> 377af37 (pengkondisian navbar layanan)
 ?>
 
 

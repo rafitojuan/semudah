@@ -1,5 +1,9 @@
 <?php
 session_start();
+<<<<<<< HEAD
+=======
+$_SESSION['layanan'] = true;
+>>>>>>> 377af37 (pengkondisian navbar layanan)
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +25,13 @@ session_start();
     <div class="bg-service-content pt-5" style="height: 600px">
         <div class="container">
             <?php
+<<<<<<< HEAD
             if (isset($_SESSION['login'])) {
                 include 'component/navbar-login.php';
+=======
+            if (isset($_SESSION['layanan'])) {
+                include 'component/navbar-layanan.php';
+>>>>>>> 377af37 (pengkondisian navbar layanan)
             } else {
                 include 'component/navbar.php';
             }
