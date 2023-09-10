@@ -20,7 +20,7 @@ session_start();
 
 <body>
 
-    <div class="hero bg-landing vh-100 position-relative" data-aos="fade" data-aos-duration="2000">
+    <div class="hero bg-landing vh-100 position-relative">
         <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
         <?php
         if (isset($_SESSION['login'])) {
@@ -78,7 +78,7 @@ session_start();
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Service Handphone</h5>
                             <p>Melayani service handphone seperti pemasangan lcd dll.</p>
-                            <a href="" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-servicehp.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>

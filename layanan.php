@@ -59,7 +59,7 @@ session_start();
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Service Handphone</h5>
                             <p>Melayani service handphone seperti pemasangan lcd dll.</p>
-                            <a href="" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-servicehp.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>
