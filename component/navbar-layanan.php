@@ -15,7 +15,7 @@
           <li class="nav-item d-none">
             <a class="nav-link me-4" aria-current="page" href="#layanan">Layanan</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item d-none">
             <a class="nav-link me-4" aria-current="page" href="#carapesan">Cara pesan</a>
           </li>
           <li class="nav-item">
