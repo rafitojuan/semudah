@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$_SESSION['layanan'] = true;
+
 if (!isset($_SESSION['login'])) {
   echo "
         <script>
