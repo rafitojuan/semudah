@@ -1,0 +1,351 @@
+@font-face {
+  font-family: "Ubuntu-Regular";
+  src: url("../fonts/Ubuntu-Regular.ttf");
+  src: url("../fonts/Ubuntu-Regular.ttf") format(".ttf");
+  src: url("../fonts/Ubuntu-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu-Regular";
+}
+
+.bg-landing {
+  background-image: url("../img/landingpage.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.bg-login {
+  background-image: url("../img/login.png");
+  background-size: cover;
+}
+
+.bg-semudah {
+  background-color: #4fa3c6;
+}
+
+.bg-semudah:hover {
+  background-color: #589ab6 !important;
+}
+
+.text-semudah {
+  color: #4fa3c6;
+}
+
+.text-semudah:hover {
+  color: #589ab6;
+}
+
+.btn-semudah {
+  color: #fff;
+  background-color: #0D5890;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.btn-semudah:hover {
+  color: #fff;
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.userdashboard {
+  display: none !important;
+}
+
+.nav-link:not(#signup) {
+  color: #ffff !important;
+}
+
+.nav-link:not(#signup):hover {
+  color: skyblue !important;
+}
+
+.nav-link:not(#signup):hover::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid skyblue;
+  width: 70%;
+  margin: auto;
+  padding-bottom: 4px;
+  margin-bottom: -7px;
+}
+
+#main-hero {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.2)
+  );
+}
+
+.lihatsemua {
+  font-weight: lighter;
+  border-radius: 20px;
+  width: 196px;
+}
+
+/* cara pesan */
+
+.caralogin {
+  border-radius: 20px;
+  background-color: #c64fba;
+  margin-bottom: 10vh;
+}
+
+.caralayanan {
+  border-radius: 20px;
+  background-color: #ffab00;
+  margin-bottom: 10vh;
+}
+
+.carapesan {
+  border-radius: 20px;
+  background-color: #36b37e;
+  margin-bottom: 10vh;
+}
+
+.carabayar {
+  border-radius: 20px;
+  background-color: #ff5630;
+  margin-bottom: 10vh;
+}
+
+.vecpesan {
+  margin-top: -128px;
+}
+
+.tutor {
+  padding-top: 320px;
+  border-radius: 40px 40px 0 0;
+  transform: translateY(-100px);
+}
+
+.bg-nav-scrolled {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.2)
+  );
+  animation: navScrolled 200ms linear;
+}
+
+.bg-service-1 {
+  background-image: url("../img/instalasi-windows.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-service-2 {
+  background-image: url("../img/service-laptop.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-service-3 {
+  background-image: url("../img/service-handphone.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-service {
+  height: 550px;
+  position: relative;
+  z-index: 999;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+.bg-service-content {
+  background-color: #003974;
+}
+
+.bg-why-content {
+  background-color: #003974;
+  height: 600px;
+}
+
+.hero-content {
+  width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+}
+
+.card-1 {
+  background-color: #bf40bf;
+}
+
+.card-2 {
+  background-color: #ffab00;
+}
+
+.card-3 {
+  background-color: #36b37e;
+}
+
+.card-4 {
+  background-color: #ff5630;
+}
+
+.vecpesan {
+  transition: transform 800ms ease !important;
+}
+
+.vecpesan:hover {
+  transform: scale(1.1) !important;
+}
+
+/* Layanan Area */
+.bg-instalasi {
+  background-image: url("../img/instalasi-windows.png");
+  background-attachment: fixed;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-layanan-service {
+  background-image: url("../img/service-laptop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.border-input {
+  border: 1px solid black;
+}
+
+.hero-instalasi {
+  width: 100%;
+}
+
+.hero-service {
+  width: 100%;
+}
+
+.bg-layanan-service-handphone {
+  background-image: url("../img/service-handphone.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* PEMBAYARAN AREA */
+/* .offCol {
+  margin-left: -2000000px;
+} */
+
+/* KEYFRAMES AREA!!! */
+@keyframes navScrolled {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 56.8px;
+  }
+}
+
+/* MOBILE VIEWW */
+@media screen and (max-width: 768px) {
+  #nav {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.2)
+    );
+  }
+
+  .nav-item {
+    padding: 3px;
+  }
+
+  .nav-link:not(#signup):hover::after {
+    content: "";
+    display: block;
+    border-bottom: transparent;
+    width: 70%;
+    margin: auto;
+    padding-bottom: 4px;
+    margin-bottom: -4px;
+  }
+
+  .profilpic {
+    display: none;
+  }
+
+  .userdashboard {
+    display: block !important;
+    padding: 3px;
+  }
+
+  .tutor {
+    padding-top: 1500px;
+  }
+
+  .bg-why-content {
+    background-color: #003974;
+    height: 1370px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .bni {
+    margin-top: 15px !important;
+  }
+
+  .dana {
+    margin-top: 15px !important;
+  }
+}
+
+.file-upload {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.file-upload:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.file-upload::after {
+  content: url('../img/icon-img.png');
+  margin-left: 10px;
+}
+

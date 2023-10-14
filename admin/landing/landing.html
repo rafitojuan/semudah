@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>semudah</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+
+.container{
+    width: 100%;
+    height: 1000px;
+}
+.header{
+    
+    width: 100%;
+    background-color: white;
+    height: 60px;
+    position: fixed;
+    box-shadow: 0px 2px 10px black;
+      
+    
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+
+}
+.nav-logo{
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    margin-left: 100px
+
+}
+.nav-logo h2{
+    margin-right: 30px;
+}
+
+.nav-list{
+    padding: 7px;
+}
+.nav-list ul{
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    list-style: none;
+    
+}
+.nav-list ul li a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;    
+    padding-bottom: 10px;
+}
+
+.nav-list ul li a:hover{
+    color: #0D5890;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid  #0D5890;
+}
+.nav-right{
+    width: 10px;
+    padding: 7px;
+   
+}
+.nav-right ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-right>ul>li{
+    list-style: none;
+    margin-right: 10px;
+}
+
+.nav-right ul li a{
+    text-decoration: none;
+    color: black;
+    padding-bottom: 10px;
+}
+
+.nav-right ul li a:hover{
+   color: #0D5890;
+   transition: all 0.3s ease ;
+   border-bottom: 1px solid  #0D5890;
+}
+
+.nav-right>ul>li:nth-child(2) a{
+    background-color: #0D5890;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.nav-right>ul>li:nth-child(2) a:hover{
+    background-color: rgba(0, 68, 255, 0.952);
+    transition: all 0.3s ease;
+}
+
+.jumbotron{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 150px;
+    padding-top: 120px;
+}
+.jumbotron-title{
+    margin-left: 115px;
+    margin-top: 20px;
+
+}
+.jumbotron h2{
+    color: #0D5890;
+    font-size: 48px;
+}
+.jumbotron p{
+    width: 300px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.jumbotron a{
+    text-decoration: none;
+    color: white;
+    background-color: #0D5890;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.jumbotron a:hover{
+    background-color: rgba(0, 68, 255, 0.952);
+    transition: all 0.3s ease;
+} 
+
+.jumbotron-img{
+    margin-right: 100px;
+}
+
+.chat{
+    margin-top: 25px;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.register{
+    height: 20px;
+    background-color:  #0D5890;;
+    border-radius: 20px;
+    border: none;
+    width: 80px;
+ }
+ .reg{
+    margin-left: 10px;
+   
+ }
+ .semudah img{
+    width: 150px;
+    color: 150px;
+ }
+
+#melayani>h2{
+    padding-bottom: 30px;
+    font-size: 16pt;
+    margin-left: 115px;
+   
+}   
+
+ .kartu {
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+  
+  
+}
+.kartu a{
+    text-decoration: none;
+}
+
+.laptop  {
+    background-image: url(./asset/servicelaptop.png);
+    background-size: cover;
+    width: 200px;
+    height: 220px;
+    border-radius: 20px;  
+  -webkit-box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+   box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+}
+
+
+.laptop p{
+    padding-top: 180px;
+    margin-left: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+
+.ram  {
+    background-image: url(./asset/tambahram.png);
+    background-size: cover;
+    width: 200px;
+    height: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+    -webkit-box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+     box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+}
+
+.ram p{
+    padding-top: 180px;
+    margin-left: 45px;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+
+.windows  {
+    background-image: url(./asset/instalasi.png);
+    background-size: cover;
+    width: 200px;
+    height: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+    -webkit-box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+     box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+  }
+
+
+
+.windows p{
+    padding-top: 180px;
+    margin-left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+
+.ssd  {
+    background-image: url(./asset/ganntissd.png);
+    background-size: cover;
+    width: 200px;
+    height: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+    -webkit-box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+     box-shadow: 0px 4px 25px 0px rgba(0,0,0,0.25);
+  }
+
+.ssd p{
+    padding-top: 180px;
+    margin-left: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+.dll{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    
+}
+hr{
+    width: 100px;
+    margin-top: 5px;
+}
+#carapesan{
+    width: 100%;
+    height: 350px;
+    background-color: #aecfd4;
+    margin-bottom: 60px;
+    
+}
+#carapesan h2{
+    margin-bottom: 20px;
+    margin-left: 50px;
+    font-size: 25px;
+    padding-top: 50px;
+}
+.cara{
+    display: flex;
+    margin-left: 50px;
+    margin-bottom: 15px;
+    
+}
+.gb{
+    margin-right: 20px;
+}
+.konten{
+    width: 100%;
+    height: 500px;
+
+}
+.layanankami{
+    text-align: center;
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 10px;
+}
+.konten h3{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.isi-konten{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;  
+}
+.kotak{
+    width:400px;
+    text-align: center;
+    height: 200px;
+}
+.judul{
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+.isi-judul{
+    font-size: 15px;
+}
+
+#footer{
+    width: 100%;
+    height: 300px;
+    background: #0D5890;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px;
+}
+.kaki p{
+    margin-left: 1px solid black;
+    margin-bottom: 20px;
+}
+.isi{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.customer{
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.layanan-kami{
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.tentang{
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.jam{
+    margin-bottom: 15px;
+    font-size: 20px;    
+}
+
+.last-ft{
+   
+   
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #0D5890;
+    padding: 15px;
+    border-top: 2px solid white;
+    
+}
+
+
+.last-ft>p{
+    margin-top: 30px;
+    color: white;
+    font-size: 14pt;
+}
+
+.last-ft>ul{
+    margin-top: 27px;
+    display: flex;
+}
+
+.last-ft>ul>li{
+    margin-top: 5px;
+    margin-right: 30px;
+    list-style: none;
+    font-size: 14pt;
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width:480px){
+    .card{
+        margin-bottom: 10px;
+        
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="navbar">
+                <div class="nav-logo">
+                    <h2 class="semudah"><a href="landing.html">
+                        <img src="./asset/SEMUDAH LOGO.png" alt="">
+                    </a>    
+                    </h2>
+                    <div class="nav-list">
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="#melayani">Layanan</a></li>
+                            <li><a href="#carapesan">Cara Pesan</a></li>
+                            <li><a href="#footer">Tentang Kami</a></li>
+                            <li><a href="#">Daftar Teknisi</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <ul>
+                        <li><a href="login.html" target="_blank">Login</a></li>
+                        <li><a href="register.html" target="_blank">Register</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <div class="jumbotron-title">
+                <h2>Semua Jadi Mudah</h2>
+              <p> Temukan teknisi untuk services laptop, instalasi windows,
+                tambah ram/ssd, <br> dan masih banyak lagi</p>
+                <a href="">Buat pesanan</a>
+                
+            </div>
+
+            <div class="jumbotron-img">
+                <img src="./asset/jumbotron.png" alt="" width="400px">
+            </div>
+        </div>
+       
+        <div id="melayani">
+            <h2 id="layan">
+                Kami Melayani
+            </h2>
+           </div>
+        
+            <div class="kartu">
+                <a href="">
+                    <div class="card">
+                       <div class="laptop">
+                      <p>
+                        Service Laptop
+                      </p>
+                       </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="card">
+                       <div class="ram">
+                          <p>
+                              Ganti RAM
+                          </p>
+                       </div>
+                    </div>  
+                </a>
+                <a href="">
+                    <div class="card">
+                       <div class="windows">
+                          <p>Instalasi Windows</p>
+                       </div>
+                       
+                    </div>  
+                </a>
+                <a href="">
+                    <div class="card">
+                      <div class="ssd">
+                          <p>
+                              Ganti SSD
+                            </p>
+                       </div>
+                    </div>
+                </a>
+             </div>
+        
+        
+        <div class="dll">
+            <hr>
+            <center>
+                <i>dan lain sebagainya</i>
+            </center>
+            <hr>
+        </div>
+        <div id="carapesan">
+            <h2>Cara Pesan</h2>
+            <div class="cara">
+                <img  class ="gb"src="./asset/NEXT.png" alt="" width="15px">
+                <p>Lakukan login/register akun sebelum memesan.</p>
+            </div>
+        
+            <div class="cara">
+                <img  class ="gb"src="./asset/NEXT.png" alt="" width="15px">
+                <p>Tekan button buat pesanan.</p>
+            </div>
+        
+            <div class="cara">
+                <img  class ="gb"src="./asset/NEXT.png" alt="" width="15px">
+                <p>Pilih layanan yang dibutuhkan.</p>
+            </div>
+        
+            <div class="cara">
+                <img  class ="gb"src="./asset/NEXT.png" alt="" width="15px">
+                <p>Masukan detail kontak dan alamat rumahmu.</p>
+            </div>
+        
+            <div class="cara">
+                <img  class ="gb"src="./asset/NEXT.png" alt="" width="15px">
+                <p>Pilih metode pembayaran non-tunai / tunai.</p>
+            </div>
+        
+            <div class="cara">
+                <img  class ="gb"src="./asset/NEXT.png" alt="" width="15px">
+                <p>Selesai.</p>
+        
+            </div>
+        </div>
+        <div class="konten">
+            <p class="layanankami">Layanan kami</p>
+            <h3>Mengapa Harus Semudah</h3>
+            <div class="isi-konten">
+              <div class="kotak">
+                <img src="./asset/konsultasi.png" alt="">
+                <div class="judul">Gratis Konsultasi</div>
+                <div class="isi-judul">
+                    Jika Anda tidak mengetahui tentang 
+                    laptop, Anda selalu bisa meminta 
+                    bantuan kami.</div>
+              </div>
+              <div class="kotak">
+                <img src="./asset/cepat.png" alt="">
+                <div class="judul">Cepat dan Profesional</div>
+                <div class="isi-judul">Proses service cepat dan 
+                    profesional. Anda cukup menunggu
+                    beberapa hari dan selesai.</div>
+              </div>
+              <div class="kotak">
+                <img src="./asset/murah.png" alt="">
+                <div class="judul"> Murah dan Berkualitas</div>
+                <div class="isi-judul">Anda bisa mendapatkan service yang 
+                    profesional dan berkualitas dengan 
+                    harga yang murah.</div>
+              </div>
+            </div>
+        
+        </div>
+        <div id="footer">
+                <div class="kaki">
+                    <div class="isi"> 
+                  <table>
+                    <tr>
+                       <td><h3 class="customer"> Customer Support</h3></td>
+                        
+                    </tr>
+                      <tr>
+                          <td>
+                              Live chat atau Contact Form 
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              WhatsApp: +62 813 1506 1361
+                          </td>
+                      </tr> 
+                      <tr>
+                        <td>
+                            Email: semuda@gmail.com
+                        </td>
+                      </tr>
+                  </table>
+        
+                
+                    </div>
+        
+                </div>
+                <div class="kaki">
+                    <div class="isi">
+                   <table>
+                    <tr>
+                        <td><h3 class="layanan-kami">Layanan Kami</h3></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Jasa Service Laptop
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Jasa Tambah RAM
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Jasa Instalasi Windows
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Jasa Ganti SSD 
+                        </td>
+                    </tr>
+                   </table>
+                    </div>
+                </div>
+                <div class="kaki">
+                    <div class="isi">
+                   <table>
+                    <tr>
+                        <td><h3 class="tentang">Tentang Kami</h3></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Perusahaan Kami
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Pengelola
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Syarat Layanan
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Kebijakan Privasi
+                        </td>
+                    </tr>
+                   </table>
+                    </div>
+                </div>
+                <div class="kaki">
+                    <div class="isi">
+                    <table>
+                        <tr>
+                            <td><h3 class="jam">Jam Layanan</h3></td>
+                        </tr>
+                    <tr>
+                        <td>Senin-Jum'at:
+        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            06.30-15.00WIB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Sabtu-Minggu:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Closed
+                        </td>
+                    </tr>
+                    </table>
+                    </div>
+                </div>
+        
+               
+        </div>
+        
+        <div class="last-ft">
+            <p>Copyright @2022-2025 </p>
+            <p>|</p>
+            <ul>
+                <li>Term of Services</li>
+                <li>Privacy Polices</li>
+                <li>Servers Status</li>
+            </ul>
+            <div class="chat"> 
+                <a href=""><img src="./asset/caht.png" alt="" width="30px"></a>
+            </div>
+        </div>
+        
+    
+       
+
+    </div>
+
+
+ 
+
+
+    
+</body>
+</html>
