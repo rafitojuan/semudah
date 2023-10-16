@@ -21,9 +21,6 @@
           <li class="nav-item">
             <a class="nav-link me-4" aria-current="page" href="#footer">Tentang kami</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link me-4" aria-current="page" href="#">Daftar teknisi</a>
-          </li>
         </ul>
 
         <div class="auth">

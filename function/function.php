@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect(	'sql200.byethost12.com','b12_34989142','semuajadimudah','b12_34989142_semudah');
+$conn = mysqli_connect('localhost', 'root', '', 'semudah');
 function tambahUser($data)
 {
     global $conn;
@@ -11,9 +11,9 @@ function tambahUser($data)
     $telp = $data['telp'];
     $gambar = uploadGambarUser();
 
-    $validasiEmail = mysqli_query($conn,"SELECT email FROM user WHERE email ='$email'");
-    if(mysqli_fetch_assoc($validasiEmail)){
-        echo"
+    $validasiEmail = mysqli_query($conn, "SELECT email FROM user WHERE email ='$email'");
+    if (mysqli_fetch_assoc($validasiEmail)) {
+        echo "
         <script>
          alert('Email sudah terdaftar');
         </script>
@@ -21,7 +21,7 @@ function tambahUser($data)
         return false;
     }
 
-    $password = password_hash($password,PASSWORD_DEFAULT);
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
     if (!$gambar) {
         return false;
@@ -60,22 +60,41 @@ function uploadGambarUser()
     return $namaFileBaru;
 }
 
-    function addLayanan($data){
-        global $conn;
-        $nama = $_SESSION['nama'];
-        $telp = $_SESSION['telp'];
-        $merk = $data['merk'];
-        $spek = $data['spesifikasi'];
-        $layanan = $data['layanan'];
-        $alamat = $data['alamat'];
-        $tgl_kunjungan = $data['tgl_kunjungan'];
+function addLayanan($data)
+{
+    global $conn;
+    $nama = $_SESSION['nama'];
+    $telp = $_SESSION['telp'];
+    $merk = $data['merk'];
+    $spek = $data['spesifikasi'];
+    $layanan = $data['layanan'];
+    $alamat = $data['alamat'];
+    $tgl_kunjungan = $data['tgl_kunjungan'];
 
-        mysqli_query($conn,"INSERT INTO keluhan_pelanggan VALUES('','$nama','$merk','$spek','','$layanan' ,'','','$tgl_kunjungan','$alamat','$telp','','','','','','','','')");
-        return mysqli_affected_rows($conn);
-    }   
+    mysqli_query($conn, "INSERT INTO keluhan_pelanggan VALUES('','$nama','$merk','$spek','','$layanan' ,'','','$tgl_kunjungan','$alamat','$telp','','','','','','','','')");
+    return mysqli_affected_rows($conn);
+}
+
+function addInstalasi($data)
+{
+    global $conn;
+
+    $nama = ucwords($_SESSION['nama']);
+    $telp = $_SESSION['telp'];
+    $merk = htmlspecialchars($data['merk']);
+    $spek = htmlspecialchars($data['spesifikasi']);
+    $os = ucwords(htmlspecialchars($data['os']));
+    $office = ucwords(htmlspecialchars($data['office']));
+    $alamat = htmlspecialchars($data['alamat']);
+    $kunjungan = htmlspecialchars($data['tgl_kunjungan']);
+
+    $query = "INSERT INTO keluhan_pelanggan VALUES('','$nama','$merk','$spek','','$os, $office','','','$kunjungan','$alamat','$telp','','','','','','','','')";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
 
 
-    function tambahAdmin($data)
+function tambahAdmin($data)
 {
     global $conn;
 
@@ -92,5 +111,3 @@ function uploadGambarUser()
 
     return mysqli_affected_rows($conn);
 }
-
-?>

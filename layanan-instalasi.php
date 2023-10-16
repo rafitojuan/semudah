@@ -3,6 +3,8 @@ session_start();
 
 $_SESSION['layanan'] = true;
 
+require 'function/function.php';
+
 if (!isset($_SESSION['login'])) {
   echo "
         <script>
@@ -10,6 +12,24 @@ if (!isset($_SESSION['login'])) {
          document.location.href = 'user/login.php';
         </script>
         ";
+}
+
+if (isset($_POST['pesan'])) {
+  if (addInstalasi($_POST) > 0) {
+    echo "
+        <script>
+         alert('Data berhasil dikirim');
+         document.location.href = 'layanan-instalasi.php';
+        </script>
+        ";
+  } else {
+    echo "
+        <script>
+         alert('Data berhasil dikirim');
+         document.location.href = 'layanan-instalasi.php';
+        </script>
+        ";
+  }
 }
 
 
@@ -99,7 +119,7 @@ if (!isset($_SESSION['login'])) {
             <input type="date" class="form-control border-input" name="tgl_kunjungan" required>
             <small class="text-muted">*Kapan teknisi kami bisa mengambil laptopmu</small>
           </div>
-          <button type="submit" class="btn bg-semudah w-100 text-white">Pesan</button>
+          <button type="submit" class="btn bg-semudah w-100 text-white" name="pesan">Pesan</button>
         </form>
       </div>
     </div>
