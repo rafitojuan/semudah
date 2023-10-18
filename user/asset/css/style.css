@@ -34,6 +34,9 @@
 .text-semudah {
   color: #4fa3c6;
 }
+.text-darksemudah {
+  color: #003974;
+}
 
 .text-semudah:hover {
   color: #589ab6;

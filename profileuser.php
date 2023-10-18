@@ -1,6 +1,17 @@
 <?php
 session_start();
 
+$_SESSION['layanan'] = true;
+
+if (!isset($_SESSION['login'])) {
+    echo "
+        <script>
+         alert('Harap login terlebih dahulu');
+         document.location.href = 'user/login.php';
+        </script>
+        ";
+}
+
 ?>
 
 
@@ -16,93 +27,130 @@ session_start();
     <link rel="stylesheet" href="user/asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="user/asset/css/style.css">
     <link href="user/asset/aos/aos.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #003974 !important;
+        }
+    </style>
 </head>
-
-<style>
-    .cardprofile {
-        filter: brightness(50%);
-    }
-    .h3-card {
-        position: absolute;
-        margin-left: 65px;
-        margin-top: 70px;
-        color:white;
-    }
-    .h3-card2 {
-        position: absolute;
-        margin-left: 40px;
-        margin-top: -115px;
-        color:white;
-    }
-    .h3-card3 {
-        position: absolute;
-        margin-left: 110px;
-        margin-top: -115px;
-        color:white;
-    }
-</style>
 
 <body>
 
     <div class="hero position-relative" data-aos="fade" data-aos-duration="2000">
         <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
         <?php
-            include 'component/navbar-login.php';
+        include 'component/navbar-login.php';
         ?>
-      
-        </div>
+
+    </div>
     </div>
 
     <br><br>
 
-    <div class="div text-center mt-5">
+    <div class="container mb-5">
+        <div class="row mt-5">
+            <div class="profile-photo mb-3">
+                <?php
+                $foto = isset($_SESSION['foto']) ? $_SESSION['foto'] : 'dummy-profile.jpg';
+                ?>
+                <img src="user/asset/img_user/<?= $foto ?>" class="img-fluid mx-auto d-block rounded-circle"
+                    style="width:10rem; height:10rem">
 
-        <img class="rounded-circle" width="300vh" src="user/asset/img/login.png" alt="">
-        <h2 class="mt-3"><b>nameeeeeeeeee</b></h2>
-        <br>
-
-        <a class="btn btn-primary btn-lg" href="#" role="button">Edit Profile</a>
-
-    </div>
-
-    <br><br>
-
-    <!-- CARD -->
-    <div class="container">
-
-        <div class="row mt-2">
-
-            <div class="col mx-3">
-                    <div class="card rounded" style="width: 20rem; height: 11rem">
-                        <img src="user/asset/img/service-laptopuser.png" height="190px" class="card-img-top cardprofile" alt="...">
-                        <h3 class="h3-card"><b>Service-Laptop</b></h3>
-                    </div>
             </div>
 
-            <div class="col">
-                    <div class="card rounded" style="width: 20rem;">
-                        <img src="user/asset/img/service-handphoneuser.png" height="190px" class="card-img-top cardprofile" alt="...">
-                    </div>
-                    <h3 class="h3-card2"><b>Service-Handphone</b></h3>
+            <div class="buttons-detail d-flex justify-content-center mb-5">
+                <button class="btn bg-semudah text-white me-3">Edit Profile</button>
+                <a href="user/logout.php" class="btn btn-danger">Logout</a>
             </div>
 
-            <div class="col">
-                    <div class="card rounded" style="width: 20rem;">
-                        <img src="user/asset/img/desain.png" height="190px" class="card-img-top cardprofile" alt="...">
+            <div class="details-order">
+                <p class="fs-5=6 fw-bold">
+                    <span style="color:#4fa3c6 !important;">|</span> Pesanan Saya
+                </p>
+                <div class="timeline d-flex">
+                    <div class="img-task me-3">
+                        <img src="user/asset/img_user/64f2e14276e62.png" class="img-fluid rounded"
+                            style="width:20rem; height:34rem">
                     </div>
-                    <h3 class="h3-card3"><b>Desain</b></h3>
-            </div>
+                    <div class="line">
+                        <div class="device-name mt-3 mb-3">
+                            <h5 class="fw-bold">Acer Aspire V</h5>
+                        </div>
+                        <div class="line1 d-flex align-items-center">
+                            <div class="rounded-circle"
+                                style="background-color:#003974 !important; width:1rem; height:1rem;"></div>
+                            <div class="task-title ms-3">
+                                <p class="text-darksemudah mb-0">Sedang Dijemput</p>
+                                <div class="subtitle">
+                                    <p class="text-darksemudah mb-0">Teknisi Kami Sedang Menuju Ke Alamat Anda</p>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+                        <div class="line2 d-flex align-items-center">
+                            <div class="rounded-circle bg-secondary"
+                                style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+                            <div class="task-title ms-3">
+                                <p class="text-muted mb-0">Menunggu Pembayaran</p>
+                                <div class="subtitle">
+                                    <p class="text-muted mb-0">Teknisi Kami Sedang Memperbaiki Device Anda</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+                        <div class="line2 d-flex align-items-center">
+                            <div class="rounded-circle bg-secondary"
+                                style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+                            <div class="task-title ms-3">
+                                <p class="text-muted mb-0">Menunggu Pembayaran</p>
+                                <div class="subtitle">
+                                    <p class="text-muted mb-0 mb-2">Lunasi Pembayaran</p>
+                                    <button class="btn border-0 bg-secondary bg-opacity-25" disabled>Bayar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+                        <div class="line2 d-flex align-items-center">
+                            <div class="rounded-circle bg-secondary"
+                                style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+                            <div class="task-title ms-3">
+                                <p class="text-muted mb-0">Sedang Diantar</p>
+                                <div class="subtitle">
+                                    <p class="text-muted mb-0">Teknisi Kami Sedang Menuju Ke Alamat Anda</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+                        <div class="line2 d-flex align-items-center">
+                            <div class="rounded-circle bg-secondary"
+                                style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+                            <div class="task-title ms-3">
+                                <p class="text-muted mb-0">Selesai</p>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
-
     </div>
-
+    </div>
 
 
     <br><br>
 
     <?php
-    include "footer/blue-footer.php";
+    include 'footer/blue-footer.php';
     ?>
     <script src="user/asset/js/bootstrap.min.js"></script>
     <script src="user/asset/js/script.js"></script>
