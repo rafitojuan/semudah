@@ -56,6 +56,10 @@ if (!isset($_SESSION['login'])) {
                 <img src="user/asset/img_user/<?= $foto ?>" class="img-fluid mx-auto d-block rounded-circle"
                     style="width:10rem; height:10rem">
 
+                <div class="username">
+                    <h5 class="text-center fw-bold"><?=$_SESSION['nama'];?></h5>
+                </div>
+
             </div>
 
             <div class="buttons-detail d-flex justify-content-center mb-5">
