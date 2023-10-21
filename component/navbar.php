@@ -1,7 +1,7 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="nav" data-aos="fade">
     <div class="container">
-      <a class="navbar-brand navtext" href="#">
+      <a class="navbar-brand navtext" href="index.php">
         <img src="user/asset/img/logo-semudah1.png" alt="" width="140" height="28"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

@@ -1,6 +1,20 @@
 <?php
 
 $conn = mysqli_connect('localhost', 'root', '', 'semudah');
+
+function query($query)
+{
+    global $conn;
+
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+
+    return $rows;
+}
+
 function tambahUser($data)
 {
     global $conn;
@@ -89,6 +103,23 @@ function addInstalasi($data)
     $kunjungan = htmlspecialchars($data['tgl_kunjungan']);
 
     $query = "INSERT INTO keluhan_pelanggan VALUES('','$nama','$merk','$spek','','$os, $office','','','$kunjungan','$alamat','$telp','','','','','','','','')";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function addHP($data)
+{
+    global $conn;
+
+    $nama = ucwords($_SESSION['nama']);
+    $telp = $_SESSION['telp'];
+    $merk = htmlspecialchars(ucwords($data['merkhp']));
+    $spek = htmlspecialchars(ucwords($data['spesifikasi']));
+    $layanan = htmlspecialchars(ucfirst($data['layananhp']));
+    $alamat = htmlspecialchars(strtoupper($data['alamat']));
+    $kunjungan = $data['tgl_kunjungan'];
+
+    $query = "INSERT INTO keluhan_pelanggan VALUES(NULL,'$nama','$merk','$spek','','$layanan','','','$kunjungan','$alamat','$telp','','','','','','','','')";
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }

@@ -1,37 +1,37 @@
-<?php 
+<?php
 session_start();
 require 'function/function.php';
 
 
-if(!isset($_SESSION['login'])){
-    echo"<script>
+if (!isset($_SESSION['login'])) {
+    echo "<script>
         alert('Harap login terlebih dahulu');
         document.location.href = 'user/login.php';
         </script>";
-        
 }
 
-    if(isset($_POST['pesan'])){
-        if(addLayanan($_POST)>0){
-            echo"<script>
+if (isset($_POST['pesan'])) {
+    if (addLayanan($_POST) > 0) {
+        echo "<script>
                 alert('Berhasil dikirim');
                 document.location.href = 'layanan.php';
                 </script>";
-        }else{
-            echo"<script>
+    } else {
+        echo "<script>
                 alert('Gagal dikirim');
                 document.location.href = 'layanan-service.php';
                 </script>";
-        }
     }
+}
 
 
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layanan</title>
@@ -39,17 +39,18 @@ if(!isset($_SESSION['login'])){
     <link rel="stylesheet" href="user/asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="user/asset/css/style.css">
 </head>
+
 <body>
 
     <div class="hero bg-layanan-service position-relative opacity-55" style="height: 50vh">
         <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
-            <?php
-            if (isset($_SESSION['login'])) {
-                include 'component/navbar-login.php';
-            } else {
-                include 'component/navbar.php';
-            }
-            ?>
+        <?php
+        if (isset($_SESSION['login'])) {
+            include 'component/navbar-login.php';
+        } else {
+            include 'component/navbar.php';
+        }
+        ?>
         <div class="position-absolute top-50 translate-middle-y mw-100 hero-service">
             <div class="px-5">
                 <h1 class="text-center text-white fw-bold mb-3">Service Laptop</h1>
@@ -63,17 +64,17 @@ if(!isset($_SESSION['login'])){
                 <form action="" method="post">
                     <h3 class="mb-4">Spesifikasi Laptop</h3>
                     <div class="spesifikasi">
-                        <input type="text" class="form-control border-input mb-4" name="merk" placeholder="Merek Laptop" required >
+                        <input type="text" class="form-control border-input mb-4" name="merk" placeholder="Merek Laptop" required>
                         <textarea name="spesifikasi" id="" class="form-control border-input mb-5" rows="5" placeholder="Spesifikasi Tambahan (operating system,prossesor,ram,dll)"></textarea>
                     </div>
                     <h3 class="mb-4">Layanan</h3>
                     <div class="layanan mb-5">
-                        <textarea name="layanan" class="form-control border-input" id=""  rows="8"></textarea>
-                        <small class="text-muted">*Kendala dari laptop anda</small> 
+                        <textarea name="layanan" class="form-control border-input" id="" rows="8"></textarea>
+                        <small class="text-muted">*Kendala dari laptop anda</small>
                     </div>
                     <h3 class="mb-4">Informasi Pembeli</h3>
                     <div class="informasi mb-4">
-                        <input type="text" class="form-control border-input mb-4" name="alamat" placeholder ="Alamat Rumah" required>
+                        <input type="text" class="form-control border-input mb-4" name="alamat" placeholder="Alamat Rumah" required>
                         <label for="" class="form-label">Tanggal Kunjungan</label>
                         <input type="date" class="form-control border-input" name="tgl_kunjungan" required>
                         <small class="text-muted">*Kapan teknisi kami bisa mengambil laptopmu</small>
@@ -84,7 +85,7 @@ if(!isset($_SESSION['login'])){
         </div>
     </div>
     <?php
-        include "footer/blue-footer.php";
+    include "footer/blue-footer.php";
     ?>
 
 
@@ -94,4 +95,5 @@ if(!isset($_SESSION['login'])){
     <script src="user/asset/js/bootstrap.min.js"></script>
     <script src="user/asset/js/script.js"></script>
 </body>
+
 </html>

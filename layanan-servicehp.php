@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'function/function.php';
 
 $_SESSION['layanan'] = true;
 
@@ -9,6 +10,24 @@ if (!isset($_SESSION['login'])) {
         alert('Harap login terlebih dahulu');
         document.location.href = 'user/login.php';
         </script>";
+}
+
+if (isset($_POST['pesan'])) {
+    if (addHP($_POST) > 0) {
+        echo "
+            <script>
+             alert('Data berhasil dikirim');
+             document.location.href = 'layanan-servicehp.php';
+            </script>
+            ";
+    } else {
+        echo "
+            <script>
+             alert('Data berhasil dikirim');
+             document.location.href = 'layanan-servicehp.php';
+            </script>
+            ";
+    }
 }
 
 ?>
@@ -64,7 +83,7 @@ if (!isset($_SESSION['login'])) {
                         <input type="date" class="form-control border-input" name="tgl_kunjungan" required>
                         <small class="text-muted">*Kapan teknisi kami bisa mengambil Handphone mu</small>
                     </div>
-                    <button type="submit" class="btn bg-semudah w-100 text-white">Pesan</button>
+                    <button type="submit" name="pesan" class="btn bg-semudah w-100 text-white">Pesan</button>
                 </form>
             </div>
         </div>

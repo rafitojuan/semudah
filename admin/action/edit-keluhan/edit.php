@@ -4,7 +4,7 @@ include "../../session/session.php";
 
 $id = $_GET['id'];
 
-if(isset($_POST['update'])){
+if (isset($_POST['update'])) {
     $status = $_POST['status'];
     $tek = $_POST['teknisi'];
     $kurir = $_POST['kurir'];
@@ -87,31 +87,31 @@ $teknisi = mysqli_query($conn, "SELECT * FROM teknisi");
                                 </select> -->
 
                                 <label for="status">Status:</label><br>
-                                <input type="number" name="status" id="status" value="<?= $row['status']?>">
+                                <input type="number" name="status" id="status" value="<?= $row['status'] ?>">
 
                                 <br><br>
 
                                 <label for="teknisi">Teknisi:</label><br>
-                                <!-- <input type="number" name="status" id="status" value="<?= $row['status']?>" max="5"> -->
+                                <!-- <input type="number" name="status" id="status" value="<?= $row['status'] ?>" max="5"> -->
                                 <select name="teknisi" id="teknisi">
-                                    <?php 
-                                    foreach($teknisi as $t):
+                                    <?php
+                                    foreach ($teknisi as $t) :
                                     ?>
-                                    <option value="<?= $t['nama_teknisi']?>"><?= $t['nama_teknisi']?></option>
-                                    <?php 
+                                        <option value="<?= $t['nama_teknisi'] ?>"><?= $t['nama_teknisi'] ?></option>
+                                    <?php
                                     endforeach;
                                     ?>
                                 </select>
-                                
+
                                 <br><br>
 
                                 <label for="kurir">Kurir:</label><br>
-                                <input type="text" id="kurir" name="kurir" value="<?= $row['kurir']?>">
+                                <input type="text" id="kurir" name="kurir" value="<?= $row['kurir'] ?>">
 
                                 <br><br>
-                                
+
                                 <label for="tgl_keluar">Tanggal Kembali:</label><br>
-                                <input type="date" id="tgl_keluar" name="tgl_keluar" value="<?= $row['tgl_keluar']?>">
+                                <input type="date" id="tgl_keluar" name="tgl_keluar" value="<?= $row['tgl_keluar'] ?>">
 
                                 <br><br>
 

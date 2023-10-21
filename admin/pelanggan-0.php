@@ -205,7 +205,7 @@ $row4 = mysqli_num_rows($query6);
                                                     <td><?= $d['keluhan'] ?></td>
                                                     <td><?= $d['layanan'] ?></td>
                                                     <td><?= $d['nota_tambahan'] ?></td>
-                                                    <td><img src="../user/asset/img_laptop/<?= $d['gambar']?>" alt="" width="100px"></td>
+                                                    <td><img src="../user/asset/img_laptop/<?= $d['gambar'] ?>" alt="" width="100px"></td>
                                                     <td><?= $d['waktu_kunjungan'] ?></td>
                                                     <td><?= $d['alamat'] ?></td>
                                                     <td><?= $d['telp'] ?></td>

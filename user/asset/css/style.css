@@ -34,6 +34,9 @@
 .text-semudah {
   color: #4fa3c6;
 }
+.text-darksemudah {
+  color: #003974;
+}
 
 .text-semudah:hover {
   color: #589ab6;
@@ -41,7 +44,7 @@
 
 .btn-semudah {
   color: #fff;
-  background-color: #0D5890;
+  background-color: #0d5890;
   cursor: pointer;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -345,7 +348,8 @@
 }
 
 .file-upload::after {
-  content: url('../img/icon-img.png');
+  content: url("../img/icon-img.png");
   margin-left: 10px;
 }
+
 
