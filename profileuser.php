@@ -95,14 +95,19 @@ if (!isset($_SESSION['login'])) {
                 </p>
                 <div class="row">
                     <?php foreach ($keluhan as $card) : ?>
-                        <a class="col-lg-4 col-md-6 col-sm-12 mt-3 text-dark" href="detail-pesanan.php?k=<?= $card['id_keluhan']  ?>" style="text-decoration: none; cursor: default;">
-                            <div class="kartu-pesanan card shadow" id="manusiaotot" style="width: 100%; height: 185px; transition: transform .2s, background-color .5s; border-radius: 10px;">
+                        <div class="col-lg-4 col-md-6 col-sm-12 mt-3 text-dark">
+                            <div class="kartu-pesanan card shadow" id="manusiaotot" style="width: 100%;  transition: transform .2s, background-color .5s; border-radius: 10px;">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $card['merek']  ?></h5>
                                     <p class="card-text">Layanan dan keluhan : <?= $card['layanan']  ?>, <?= $card['keluhan']  ?></p>
                                 </div>
+                                    <div class="d-flex justify-content-between p-3">
+                                        <button class="btn btn-warning btn-sm" onclick="location.href='pembayaran-awal.php?id_dp=<?=$card['id_keluhan']?>'">Bayar DP</button>
+                                        <button class="btn btn-sm btn-success" onclick="location.href='pembayaran-akhir.php?id_lunas=<?=$card['id_keluhan']?>'">Bayar Lunas</button> 
+                                        <button class="btn btn-primary btn-sm"onclick="location.href='detail-pesanan.php?k=<?=$card['id_keluhan'];?>'">Detail Pesanan</button>
+                                    </div>
                             </div>
-                        </a>
+                    </div>
                     <?php endforeach; ?>
                 </div>
             </div>

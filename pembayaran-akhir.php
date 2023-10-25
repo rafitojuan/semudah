@@ -3,7 +3,7 @@ session_start();
 require 'function/function.php';
 $_SESSION['layanan'] = true;
 
-$id = $_GET['id_dp'];
+$id = $_GET['id_lunas'];
 if (!isset($_SESSION['login'])) {
     echo "
         <script>
@@ -14,12 +14,12 @@ if (!isset($_SESSION['login'])) {
 }
 
 if(isset($_POST['upload'])){
-    $gambar = uploadBuktiPembayaranDP();
-    $query = mysqli_query($conn, "UPDATE keluhan_pelanggan SET bukti_dp = '$gambar' WHERE id_keluhan='$id'");
+    $gambar = uploadBuktiPembayaranLunas();
+    $query = mysqli_query($conn, "UPDATE keluhan_pelanggan SET bukti_pelunasan = '$gambar' WHERE id_keluhan='$id'");
     {
         echo "<script>
                alert('bukti berhasil dikirim')
-               document.location.href = 'pembayaran-awal.php?id_dp=$id';
+               document.location.href = 'pembayaran-akhir.php?id_lunas=$id';
                </script>   
             ";
     }
@@ -56,7 +56,7 @@ if(isset($_POST['upload'])){
         ?>
         <div class="position-absolute top-50 translate-middle-y mw-100 hero-instalasi">
             <div class="px-5">
-                <h1 class="text-white fw-bold text-center">Pembayaran Awal</h1>
+                <h1 class="text-white fw-bold text-center">Pembayaran Akhir</h1>
                 <small class="text-white text-center d-block opacity-75">Lampirkan bukti pembayaran dibawah</small>
             </div>
         </div>

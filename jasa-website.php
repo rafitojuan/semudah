@@ -1,12 +1,23 @@
 <?php 
 session_start();
-
+require 'function/function.php';
+$_SESSION['layanan'] = true;
 if(!isset($_SESSION['login'])){
     echo"<script>
         alert('Harap login terlebih dahulu');
         document.location.href = 'user/login.php';
         </script>";
         
+}
+
+
+if(isset($_POST['kirim'])){
+    if(addWebsite($_POST)>0){
+        echo "  <script> 
+                alert('berhasil terkirim, silahkan hubungi nomor 0890192911 untuk informasi lebih lanjut')
+                document.location.href = 'jasa-website.php';
+                </script>";
+    }
 }
 
 ?>
@@ -23,14 +34,14 @@ if(!isset($_SESSION['login'])){
 </head>
 <body>
 
-    <div class="hero bg-layanan-website position-relative opacity-55" style="height: 50vh">
+    <div class="hero bg-jasa-website position-relative opacity-55" style="height: 50vh">
         <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
         <?php
-            if (isset($_SESSION['login'])) {
-                include 'component/navbar-login.php';
-            } else {
+            if (isset($_SESSION['layanan'])) {
+                include 'component/navbar-layanan.php';
+              } else {
                 include 'component/navbar.php';
-            }
+              }
         ?>
         <div class="position-absolute top-50 translate-middle-y mw-100 hero-service">
             <div class="px-5">
@@ -44,7 +55,7 @@ if(!isset($_SESSION['login'])){
             <div class="wrapper px-5 mt-5">
                 <form action="" method="post">
                     <h3 class="mb-4">Informasi Website</h3>
-                    <div class="desain mb-5">
+                    <div class="website mb-5">
                         <select name="website" class="form-select border-input mb-5" id="">
                             <option  value="" selected disabled >Jasa Pembuatan Website</option>
                             <option value="Website Bisnis" >Website Bisnis</option>
@@ -56,7 +67,7 @@ if(!isset($_SESSION['login'])){
                         <textarea name="informasi_website" class="form-control border-input" id="" cols="30" rows="7" placeholder="Informasi Desain"></textarea>
                     </div>
                     
-                    <button type="submit" class="btn bg-semudah w-100 text-white">Pesan</button>
+                    <button type="submit" class="btn bg-semudah w-100 text-white" name="kirim">Pesan</button>
                 </form>
             </div>
         </div>

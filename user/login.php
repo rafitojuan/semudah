@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "../function/function.php";
 
 if (isset($_POST['login'])) {

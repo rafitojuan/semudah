@@ -71,7 +71,7 @@ session_start();
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <div class="card-service bg-jasa-1 p-4 text-light rounded-4">
+                    <div class="card-service bg-jasa-desain p-4 text-light rounded-4">
                         <div class="card-overlay rounded-4"></div>
                         <div class="position-absolute pe-4" style="bottom: 30px">
                             <h5>Desain</h5>
@@ -81,7 +81,7 @@ session_start();
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="card-service bg-jasa-3 p-4 text-light rounded-4">
+                    <div class="card-service bg-jasa-network p-4 text-light rounded-4">
                         <div class="card-overlay rounded-4"></div>
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Networking</h5>
@@ -91,7 +91,7 @@ session_start();
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="card-service bg-jasa-2 p-4 text-light rounded-4">
+                    <div class="card-service bg-jasa-website p-4 text-light rounded-4">
                         <div class="card-overlay rounded-4"></div>
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Pembuatan Website</h5>

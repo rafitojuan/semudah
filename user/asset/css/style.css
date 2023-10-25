@@ -249,6 +249,26 @@
   background-attachment: fixed;
 }
 
+.bg-jasa-desain{
+  background-image: url("../img/desain.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bg-jasa-website{
+  background-image: url("../img/pembuatan-web.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.bg-jasa-network{
+  background-image: url("../img/networking.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 /* PEMBAYARAN AREA */
 /* .offCol {
   margin-left: -2000000px;

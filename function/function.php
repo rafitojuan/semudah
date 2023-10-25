@@ -124,6 +124,46 @@ function addHP($data)
     return mysqli_affected_rows($conn);
 }
 
+function addDesain($data){
+    global $conn;
+
+    $nama = ucwords($_SESSION['nama']);
+    $telp = $_SESSION['telp'];
+    $inf = htmlspecialchars(ucwords($data['informasi_desain']));
+    $desain = htmlspecialchars(ucfirst($data['desain']));
+
+    mysqli_query($conn,"INSERT INTO keluhan_pelanggan VALUES('','$nama','','$inf','','$desain','','','','','','$telp','','','','','','','')");
+    return mysqli_affected_rows($conn);
+}
+
+function addWebsite($data){
+    global $conn;
+
+    $nama = ucwords($_SESSION['nama']);
+    $telp = $_SESSION['telp'];
+    $inf = htmlspecialchars(ucwords($data['informasi_website']));
+    $website = htmlspecialchars(ucfirst($data['website']));
+
+    mysqli_query($conn,"INSERT INTO keluhan_pelanggan VALUES('','$nama','','$inf','','$website','','','','','','$telp','','','','','','','')");
+    return mysqli_affected_rows($conn);
+}
+
+
+function addNetwork($data){
+    global $conn;
+
+    $nama = ucwords($_SESSION['nama']);
+    $telp = $_SESSION['telp'];
+    $inf = htmlspecialchars(ucwords($data['informasi_networking']));
+    $website = htmlspecialchars(ucfirst($data['networking']));
+    $alamat = htmlspecialchars(strtoupper($data['alamat']));
+    $kunjungan = $data['tgl_kunjungan'];
+
+
+    mysqli_query($conn,"INSERT INTO keluhan_pelanggan VALUES('','$nama','','$inf','','$website','','','','$kunjungan','$alamat','$telp','','','','','','','')");
+    return mysqli_affected_rows($conn);
+}
+
 
 function tambahAdmin($data)
 {
@@ -141,4 +181,57 @@ function tambahAdmin($data)
     $query = mysqli_query($conn, "INSERT INTO admin VALUES('', '$email', '$nama', '$username', '$password', '$jns_kelamin','$tgl_lahir', now(), '$telp', '')");
 
     return mysqli_affected_rows($conn);
+}
+
+function uploadBuktiPembayaranDP()
+{
+    global $conn;
+
+    $namaFile = $_FILES['gambar']['name'];
+    $error = $_FILES['gambar']['error'];
+    $tmp_name = $_FILES['gambar']['tmp_name'];
+
+    $ekstensiValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiFile = explode('.', $namaFile);
+    $ekstensiFile = strtolower(end($ekstensiFile));
+
+    if (!in_array($ekstensiFile, $ekstensiValid)) {
+        echo "<script>
+                    alert('Ekstensi file tidak didukung');
+                  </script>";
+        return false;
+    }
+
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= ".";
+    $namaFileBaru .= $ekstensiFile;
+    move_uploaded_file($tmp_name, "user/asset/bukti-transaksi/dp/" . $namaFileBaru);
+
+    return $namaFileBaru;
+}
+function uploadBuktiPembayaranLunas()
+{
+    global $conn;
+
+    $namaFile = $_FILES['gambar']['name'];
+    $error = $_FILES['gambar']['error'];
+    $tmp_name = $_FILES['gambar']['tmp_name'];
+
+    $ekstensiValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiFile = explode('.', $namaFile);
+    $ekstensiFile = strtolower(end($ekstensiFile));
+
+    if (!in_array($ekstensiFile, $ekstensiValid)) {
+        echo "<script>
+                    alert('Ekstensi file tidak didukung');
+                  </script>";
+        return false;
+    }
+
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= ".";
+    $namaFileBaru .= $ekstensiFile;
+    move_uploaded_file($tmp_name, "user/asset/bukti-transaksi/lunas/" . $namaFileBaru);
+
+    return $namaFileBaru;
 }

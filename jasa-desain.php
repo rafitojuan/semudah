@@ -1,12 +1,24 @@
 <?php 
 session_start();
+require 'function/function.php';
 
+$_SESSION['layanan'] = true;    
 if(!isset($_SESSION['login'])){
     echo"<script>
         alert('Harap login terlebih dahulu');
         document.location.href = 'user/login.php';
         </script>";
         
+}
+
+
+if(isset($_POST['kirim'])){
+    if(addDesain($_POST)>0){
+        echo "  <script> 
+                alert('berhasil terkirim, silahkan hubungi nomor 0890192911 untuk informasi lebih lanjut')
+                document.location.href = 'jasa-desain.php';
+                </script>";
+    }
 }
 
 ?>
@@ -23,16 +35,16 @@ if(!isset($_SESSION['login'])){
 </head>
 <body>
 
-    <div class="hero bg-layanan-desain position-relative opacity-55" style="height: 50vh">
+    <div class="hero bg-jasa-desain position-relative opacity-55" style="height: 50vh">
         <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
         <?php
-            if (isset($_SESSION['login'])) {
-                include 'component/navbar-login.php';
-            } else {
-                include 'component/navbar.php';
-            }
+           if (isset($_SESSION['layanan'])) {
+            include 'component/navbar-layanan.php';
+          } else {
+            include 'component/navbar.php';
+          }
         ?>
-        <div class="position-absolute top-50 translate-middle-y mw-100 hero-service">
+        <div class="position-absolute top-50 translate-middle-y mw-100 hero-service ">
             <div class="px-5">
                 <h1 class="text-center text-white fw-bold mb-3">Desain</h1>
                 <small class="text-white text-center d-block">Melayani desain poster, banner ,logo, dll</small>
@@ -56,7 +68,7 @@ if(!isset($_SESSION['login'])){
                         <textarea name="informasi_desain" class="form-control border-input" id="" cols="30" rows="7" placeholder="Informasi Desain"></textarea>
                     </div>
                     
-                    <button type="submit" class="btn bg-semudah w-100 text-white">Pesan</button>
+                    <button type="submit" class="btn bg-semudah w-100 text-white" name="kirim">Pesan</button>
                 </form>
             </div>
         </div>

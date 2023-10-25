@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['layanan'] = true;
 require 'function/function.php';
 
 
@@ -45,11 +46,11 @@ if (isset($_POST['pesan'])) {
     <div class="hero bg-layanan-service position-relative opacity-55" style="height: 50vh">
         <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
         <?php
-        if (isset($_SESSION['login'])) {
-            include 'component/navbar-login.php';
-        } else {
+        if (isset($_SESSION['layanan'])) {
+            include 'component/navbar-layanan.php';
+          } else {
             include 'component/navbar.php';
-        }
+          }
         ?>
         <div class="position-absolute top-50 translate-middle-y mw-100 hero-service">
             <div class="px-5">

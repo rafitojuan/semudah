@@ -26,7 +26,6 @@
         <div class="auth">
           <img class="profilpic" src="user/asset/img_user/<?= $_SESSION['foto']; ?>" width="40" height="40" alt="" style="border-radius : 50%;">
           <a class="nav-link me-4 userdashboard" aria-current="page" href="#">Dashboard saya</a>
-          <a href="user/logout.php">Log out</a>
         </div>
       </div>
     </div>
