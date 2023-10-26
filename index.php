@@ -1,6 +1,14 @@
 <?php
 session_start();
 unset($_SESSION['layanan']);
+
+if (!isset($_SESSION['login'])) {
+    echo '
+    <script>
+    localStorage.setItem("notificationShown", "true")
+    </script>
+    ';
+}
 ?>
 
 
@@ -16,6 +24,7 @@ unset($_SESSION['layanan']);
     <link rel="stylesheet" href="user/asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="user/asset/css/style.css">
     <link href="user/asset/aos/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="user/asset/dist/toastr.min.css">
 </head>
 
 <body>
@@ -45,7 +54,7 @@ unset($_SESSION['layanan']);
                 <small class="opacity-75">Kami menyediakan beberapa layanan yang bisa kamu pesan.</small>
             </div>
             <div class="text-center mb-5">
-                <a href="layanan.php" class="btn text-white fw-lighter lihatsemua" style="background-color: #4FA3C6;">Lihat Semua</a>
+                <a href="layanan" class="btn text-white fw-lighter lihatsemua" style="background-color: #4FA3C6;">Lihat Semua</a>
             </div>
         </div>
 
@@ -58,7 +67,7 @@ unset($_SESSION['layanan']);
                         <div class="position-absolute pe-4" style="bottom: 30px">
                             <h5>Instalasi dan Aktivasi</h5>
                             <p>Melayani instalasi windows dan aktivasi office original.</p>
-                            <a href="layanan-instalasi.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-instalasi" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -68,7 +77,7 @@ unset($_SESSION['layanan']);
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Service Laptop dan Komputer</h5>
                             <p>Melayani service laptop, komputer dan perbaikan hardware lainnya.</p>
-                            <a href="layanan-service.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-service" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -78,7 +87,7 @@ unset($_SESSION['layanan']);
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Service Handphone</h5>
                             <p>Melayani service handphone seperti pemasangan lcd dll.</p>
-                            <a href="layanan-servicehp.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-servicehp" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -177,9 +186,38 @@ unset($_SESSION['layanan']);
     ?>
     <script src="user/asset/js/bootstrap.min.js"></script>
     <script src="user/asset/js/script.js"></script>
+    <script src="user/asset/js/jquery.js"></script>
     <script src="user/asset/aos/aos.js"></script>
+    <script src="user/asset/dist/toastr.min.js"></script>
     <script>
         AOS.init();
+    </script>
+
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        if (!localStorage.getItem("notificationShown")) {
+
+            toastr.info('Login berhasil, selamat datang.');
+            localStorage.setItem("notificationShown", "true");
+        };
+    </script>
+    <script>
     </script>
 </body>
 

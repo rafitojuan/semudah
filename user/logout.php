@@ -5,4 +5,4 @@ session_destroy();
 session_unset();
 $_SESSION = [];
 
-header('location: login.php');
+header('location: login');

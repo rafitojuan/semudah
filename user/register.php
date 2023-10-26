@@ -5,7 +5,7 @@ if (isset($_POST['register'])) {
     if (tambahUser($_POST)) {
         echo "<script>
                 alert('Daftar berhasil');
-                document.location.href = 'login.php';
+                document.location.href = 'login';
               </script>";
     } else {
         echo "<script>
@@ -60,7 +60,7 @@ if (isset($_POST['register'])) {
                         </div>
                         <button type="submit" name="register" class="btn bg-semudah text-white w-100 mb-2">Daftar</button>
                         <center>
-                            <span>Sudah punya akun? <a href="login.php" class="text-decoration-none text-semudah">Login disini</a></span>
+                            <span>Sudah punya akun? <a href="login" class="text-decoration-none text-semudah">Login disini</a></span>
                         </center>
                     </form>
                 </div>

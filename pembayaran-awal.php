@@ -1,25 +1,34 @@
 <?php
 session_start();
 require 'function/function.php';
-$_SESSION['layanan'] = true;
 
 $id = $_GET['id_dp'];
 if (!isset($_SESSION['login'])) {
-    echo "
-        <script>
-         alert('Harap login terlebih dahulu');
-         document.location.href = 'user/login.php';
-        </script>
-        ";
+    $loginFirst = '
+            <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function loginAlert() {
+                    Swal.fire({
+                        title: "Anda Belum Login!",
+                        text: "Harap login terlebih dahulu!",
+                        icon: "error",
+                    }).then(function() {
+                        document.location.href="user/login";
+                    });
+                };
+            </script>';
+
+    echo $loginFirst;
+    echo '<p class="text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+    echo '<script>loginAlert();</script>';
 }
 
-if(isset($_POST['upload'])){
+if (isset($_POST['upload'])) {
     $gambar = uploadBuktiPembayaranDP();
-    $query = mysqli_query($conn, "UPDATE keluhan_pelanggan SET bukti_dp = '$gambar' WHERE id_keluhan='$id'");
-    {
+    $query = mysqli_query($conn, "UPDATE keluhan_pelanggan SET bukti_dp = '$gambar' WHERE id_keluhan='$id'"); {
         echo "<script>
                alert('bukti berhasil dikirim')
-               document.location.href = 'pembayaran-awal.php?id_dp=$id';
+               document.location.href = 'pembayaran-awal?id_dp=$id';
                </script>   
             ";
     }
@@ -52,7 +61,7 @@ if(isset($_POST['upload'])){
         } else {
             include 'component/navbar.php';
         }
-        
+
         ?>
         <div class="position-absolute top-50 translate-middle-y mw-100 hero-instalasi">
             <div class="px-5">
@@ -66,47 +75,43 @@ if(isset($_POST['upload'])){
     <div class="container">
         <div class="row">
             <div class="wrapper px-5 mt-5">
-                    <div class="pembayaran border border-3 rounded-2 text-center mb-3 p-md-5 ">
-                        <div class="container mt-3 mb-3">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="user/asset/img/bank bri.png" class="img-fluid" alt=""
-                                        style="max-height: 100px;">
-                                    7632-01-007520-53-0
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="user/asset/img/bni.png" class="img-fluid" alt=""
-                                        style="max-height: 100px;">
-                                    5173-7600-0012-3456
-                                </div>
+                <div class="pembayaran border border-3 rounded-2 text-center mb-3 p-md-5 ">
+                    <div class="container mt-3 mb-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="user/asset/img/bank bri.png" class="img-fluid" alt="" style="max-height: 100px;">
+                                7632-01-007520-53-0
                             </div>
-                            <div class="row mt-md-5">
-                                <div class="col-md-6 mt-3">
-                                    <img src="user/asset/img/bank mandri.png" class="img-fluid me-3" alt=""
-                                        style="max-height: 100px;">
-                                    113-00-1523616-4
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="user/asset/img/dana.png" class="img-fluid me-3" alt=""
-                                        style="max-height: 100px;">
-                                    113-00-1523616-4
-                                </div>
+                            <div class="col-md-6">
+                                <img src="user/asset/img/bni.png" class="img-fluid" alt="" style="max-height: 100px;">
+                                5173-7600-0012-3456
                             </div>
                         </div>
-
+                        <div class="row mt-md-5">
+                            <div class="col-md-6 mt-3">
+                                <img src="user/asset/img/bank mandri.png" class="img-fluid me-3" alt="" style="max-height: 100px;">
+                                113-00-1523616-4
+                            </div>
+                            <div class="col-md-6">
+                                <img src="user/asset/img/dana.png" class="img-fluid me-3" alt="" style="max-height: 100px;">
+                                113-00-1523616-4
+                            </div>
+                        </div>
                     </div>
 
-                    
-                    <div class="informasi mb-4">
-                        <form action="" method="post" enctype="multipart/form-data">
+                </div>
 
-                            <label for="bukti" class="file-upload">
-                                <input type="file" class="d-none" name="gambar" id="bukti" required>
-                                Lampirkan bukti pembayaran
-                            </label>
-                        </div>
-                        <button type="submit" class="btn bg-semudah text-white w-100" name="upload">Konfirmasi</button>
-                    </form>
+
+                <div class="informasi mb-4">
+                    <form action="" method="post" enctype="multipart/form-data">
+
+                        <label for="bukti" class="file-upload">
+                            <input type="file" class="d-none" name="gambar" id="bukti" required>
+                            Lampirkan bukti pembayaran
+                        </label>
+                </div>
+                <button type="submit" class="btn bg-semudah text-white w-100" name="upload">Konfirmasi</button>
+                </form>
             </div>
         </div>
     </div>

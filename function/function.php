@@ -124,7 +124,8 @@ function addHP($data)
     return mysqli_affected_rows($conn);
 }
 
-function addDesain($data){
+function addDesain($data)
+{
     global $conn;
 
     $nama = ucwords($_SESSION['nama']);
@@ -132,11 +133,12 @@ function addDesain($data){
     $inf = htmlspecialchars(ucwords($data['informasi_desain']));
     $desain = htmlspecialchars(ucfirst($data['desain']));
 
-    mysqli_query($conn,"INSERT INTO keluhan_pelanggan VALUES('','$nama','','$inf','','$desain','','','','','','$telp','','','','','','','')");
+    mysqli_query($conn, "INSERT INTO keluhan_pelanggan VALUES('','$nama','','$inf','','$desain','','','','','','$telp','','','','','','','')");
     return mysqli_affected_rows($conn);
 }
 
-function addWebsite($data){
+function addWebsite($data)
+{
     global $conn;
 
     $nama = ucwords($_SESSION['nama']);
@@ -144,12 +146,13 @@ function addWebsite($data){
     $inf = htmlspecialchars(ucwords($data['informasi_website']));
     $website = htmlspecialchars(ucfirst($data['website']));
 
-    mysqli_query($conn,"INSERT INTO keluhan_pelanggan VALUES('','$nama','','$inf','','$website','','','','','','$telp','','','','','','','')");
+    mysqli_query($conn, "INSERT INTO keluhan_pelanggan VALUES('','$nama','','$inf','','$website','','','','','$telp','','','','','','','','')");
     return mysqli_affected_rows($conn);
 }
 
 
-function addNetwork($data){
+function addNetwork($data)
+{
     global $conn;
 
     $nama = ucwords($_SESSION['nama']);
@@ -160,7 +163,7 @@ function addNetwork($data){
     $kunjungan = $data['tgl_kunjungan'];
 
 
-    mysqli_query($conn,"INSERT INTO keluhan_pelanggan VALUES('','$nama','','$inf','','$website','','','','$kunjungan','$alamat','$telp','','','','','','','')");
+    mysqli_query($conn, "INSERT INTO keluhan_pelanggan VALUES('','$nama','','$inf','','$website','','','','$kunjungan','$alamat','$telp','','','','','','','')");
     return mysqli_affected_rows($conn);
 }
 

@@ -10,12 +10,25 @@ $timeline = query("SELECT * FROM timeline ORDER BY id_timeline ASC")[0];
 $keluhan = query("SELECT * FROM keluhan_pelanggan WHERE id_keluhan = '$idk'")[0];
 
 if (!isset($_SESSION['login'])) {
-  echo "
-        <script>
-         alert('Harap login terlebih dahulu');
-         document.location.href = 'user/login.php';
-        </script>
-        ";
+  if (!isset($_SESSION['login'])) {
+    $loginFirst = '
+            <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function loginAlert() {
+                    Swal.fire({
+                        title: "Anda Belum Login!",
+                        text: "Harap login terlebih dahulu!",
+                        icon: "error",
+                    }).then(function() {
+                        document.location.href="user/login";
+                    });
+                };
+            </script>';
+
+    echo $loginFirst;
+    echo '<p class="text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+    echo '<script>loginAlert();</script>';
+  }
 }
 
 ?>
@@ -187,7 +200,7 @@ if (!isset($_SESSION['login'])) {
                 <p class="text-darksemudah mb-0">Menunggu Pembayaran</p>
                 <div class="subtitle">
                   <p class="text-darksemudah mb-0 mb-2">Lunasi Pembayaran</p>
-                  <a href="pembayaran-awal.php" class="btn border-0 text-white" style="background-color:#003974 !important;">Bayar</a>
+                  <a href="pembayaran-awal" class="btn border-0 text-white" style="background-color:#003974 !important;">Bayar</a>
                 </div>
               </div>
             </div>
@@ -348,7 +361,7 @@ if (!isset($_SESSION['login'])) {
   <br><br>
 
   <?php
-  include 'footer/blue-footer.php';
+  include 'footer/blue-footer.php.php';
   ?>
   <script src="user/asset/js/jquery.js"></script>
   <script src="user/asset/js/timeline.min.js"></script>

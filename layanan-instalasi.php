@@ -1,32 +1,52 @@
 <?php
 session_start();
 
-$_SESSION['layanan'] = true;
-
 require 'function/function.php';
 
 if (!isset($_SESSION['login'])) {
-  echo "
-        <script>
-         alert('Harap login terlebih dahulu');
-         document.location.href = 'user/login.php';
-        </script>
-        ";
+  $loginFirst = '
+            <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function loginAlert() {
+                    Swal.fire({
+                        title: "Anda Belum Login!",
+                        text: "Harap login terlebih dahulu!",
+                        icon: "error",
+                    }).then(function() {
+                        document.location.href="user/login";
+                    });
+                };
+            </script>';
+
+  echo $loginFirst;
+  echo '<p class="text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+  echo '<script>loginAlert();</script>';
 }
 
 if (isset($_POST['pesan'])) {
   if (addInstalasi($_POST) > 0) {
-    echo "
-        <script>
-         alert('Data berhasil dikirim');
-         document.location.href = 'layanan-instalasi.php';
-        </script>
-        ";
+    $instalasiInput = '
+            <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function dataInputed() {
+                    Swal.fire({
+                        title: "Berhasil!",
+                        text: "Permintaan Berhasil di Kirim",
+                        icon: "success",
+                    }).then(function() {
+                        document.location.href="layanan-instalasi";
+                    });
+                };
+            </script>';
+
+    echo $instalasiInput;
+    echo '<p class="d-none text-center"></p>';
+    echo '<script>dataInputed();</script>';
   } else {
     echo "
         <script>
-         alert('Data berhasil dikirim');
-         document.location.href = 'layanan-instalasi.php';
+         alert('Data gagal dikirim');
+         document.location.href = 'layanan-instalasi';
         </script>
         ";
   }

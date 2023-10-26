@@ -1,26 +1,52 @@
 <?php
 session_start();
-$_SESSION['layanan'] = true;
+
 require 'function/function.php';
 
 
 if (!isset($_SESSION['login'])) {
-    echo "<script>
-        alert('Harap login terlebih dahulu');
-        document.location.href = 'user/login.php';
-        </script>";
+    $loginFirst = '
+    <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function loginAlert() {
+            Swal.fire({
+                title: "Anda Belum Login!",
+                text: "Harap login terlebih dahulu!",
+                icon: "error",
+            }).then(function() {
+                document.location.href="user/login";
+            });
+        };
+    </script>';
+
+    echo $loginFirst;
+    echo '<p class="text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+    echo '<script>loginAlert();</script>';
 }
 
 if (isset($_POST['pesan'])) {
     if (addLayanan($_POST) > 0) {
-        echo "<script>
-                alert('Berhasil dikirim');
-                document.location.href = 'layanan.php';
-                </script>";
+        $layananInput = '
+            <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function dataInputed() {
+                    Swal.fire({
+                        title: "Berhasil!",
+                        text: "Permintaan Berhasil di Kirim",
+                        icon: "success",
+                    }).then(function() {
+                        document.location.href="layanan-service";
+                    });
+                };
+            </script>';
+
+        echo $layananInput;
+        echo '<p class="d-none text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+        echo '<script>dataInputed();</script>';
     } else {
         echo "<script>
                 alert('Gagal dikirim');
-                document.location.href = 'layanan-service.php';
+                document.location.href = 'layanan-service';
                 </script>";
     }
 }
@@ -48,9 +74,9 @@ if (isset($_POST['pesan'])) {
         <?php
         if (isset($_SESSION['layanan'])) {
             include 'component/navbar-layanan.php';
-          } else {
+        } else {
             include 'component/navbar.php';
-          }
+        }
         ?>
         <div class="position-absolute top-50 translate-middle-y mw-100 hero-service">
             <div class="px-5">

@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION['layanan'] = true;
+
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +41,7 @@ session_start();
                         <div class="position-absolute pe-4" style="bottom: 30px">
                             <h5>Instalasi dan Aktivasi</h5>
                             <p>Melayani instalasi windows dan aktivasi office original.</p>
-                            <a href="layanan-instalasi.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-instalasi" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +51,7 @@ session_start();
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Service Laptop dan Komputer</h5>
                             <p>Melayani service laptop, komputer dan perbaikan hardware lainnya.</p>
-                            <a href="layanan-service.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-service" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -59,7 +61,7 @@ session_start();
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Service Handphone</h5>
                             <p>Melayani service handphone seperti pemasangan lcd dll.</p>
-                            <a href="layanan-servicehp.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="layanan-servicehp" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -76,7 +78,7 @@ session_start();
                         <div class="position-absolute pe-4" style="bottom: 30px">
                             <h5>Desain</h5>
                             <p>Melayani jasa desain grafis, poster, banner, dll.</p>
-                            <a href="jasa-desain.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="jasa-desain" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -86,7 +88,7 @@ session_start();
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Networking</h5>
                             <p>Melayani instalasi jaringan.</p>
-                            <a href="jasa-networking.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="jasa-networking" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -96,7 +98,7 @@ session_start();
                         <div class="position-absolute" style="bottom: 30px">
                             <h5>Pembuatan Website</h5>
                             <p>Melayani pembuatan website portofolio, bisnis, dll.</p>
-                            <a href="jasa-website.php" class="btn btn-sm btn-outline-light px-4">Pesan</a>
+                            <a href="jasa-website" class="btn btn-sm btn-outline-light px-4">Pesan</a>
                         </div>
                     </div>
                 </div>

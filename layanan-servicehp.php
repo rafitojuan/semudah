@@ -2,29 +2,51 @@
 session_start();
 require 'function/function.php';
 
-$_SESSION['layanan'] = true;
-
 
 if (!isset($_SESSION['login'])) {
-    echo "<script>
-        alert('Harap login terlebih dahulu');
-        document.location.href = 'user/login.php';
-        </script>";
+    $loginFirst = '
+            <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function loginAlert() {
+                    Swal.fire({
+                        title: "Anda Belum Login!",
+                        text: "Harap login terlebih dahulu!",
+                        icon: "error",
+                    }).then(function() {
+                        document.location.href="user/login";
+                    });
+                };
+            </script>';
+
+    echo $loginFirst;
+    echo '<p class="text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+    echo '<script>loginAlert();</script>';
 }
 
 if (isset($_POST['pesan'])) {
     if (addHP($_POST) > 0) {
-        echo "
+        $layananHp = '
+            <script src="user/asset/dist/sweetalert2.all.min.js"></script>
             <script>
-             alert('Data berhasil dikirim');
-             document.location.href = 'layanan-servicehp.php';
-            </script>
-            ";
+                function dataInputed() {
+                    Swal.fire({
+                        title: "Berhasil!",
+                        text: "Permintaan Berhasil di Kirim",
+                        icon: "success",
+                    }).then(function() {
+                        document.location.href="layanan-servicehp";
+                    });
+                };
+            </script>';
+
+        echo $layananHp;
+        echo '<p class="d-none text-center"></p>';
+        echo '<script>dataInputed();</script>';
     } else {
         echo "
             <script>
-             alert('Data berhasil dikirim');
-             document.location.href = 'layanan-servicehp.php';
+             alert('Data gagal dikirim');
+             document.location.href = 'layanan-servicehp';
             </script>
             ";
     }

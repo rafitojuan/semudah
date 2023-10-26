@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../function/function.php";
 
 if (isset($_POST['login'])) {
@@ -13,31 +14,58 @@ if (isset($_POST['login'])) {
             $_SESSION["nama"] = $row['nama'];
             $_SESSION["foto"] = $row['gambar'];
             $_SESSION['telp'] = $row['telp'];
-            echo "
-            <script>
-            document.location.href ='../index.php'
-            </script>
-            ";
+            header('Location: ../index');
         } else {
-            echo "
+            $gagalLogin = '
+            <script src="asset/dist/sweetalert2.all.min.js"></script>
             <script>
-            alert('password salah');    
-            document.location.href ='login.php'
-            </script>
-            ";
+                function showFailedLogin() {
+                    Swal.fire({
+                        title: "Ooopss!",
+                        text: "Password Yang Anda Masukkan Salah",
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    }).then(function() {
+                        document.location.href="login";
+                    });
+                };
+            </script>';
+
+            echo $gagalLogin;
+            echo '<p class="d-none text-center"></p>';
+            echo '<script>showFailedLogin();</script>';
         }
     } else {
-        echo "
+        $isnotAccount = '
+            <script src="asset/dist/sweetalert2.all.min.js"></script>
             <script>
-            alert('Akun tidak tersedia!');
-            document.location.href ='login.php'
-            </script>
-            ";
+                function showWrongLogin() {
+                    Swal.fire({
+                        title: "Ooopss!",
+                        text: "Akun Tidak Terdaftar",
+                        icon: "warning",
+                        showDenyButton: true,
+                        denyButtonText: "Daftar",
+                        confirmButtonText: "OK",
+                    }).then((result) => {
+                        if (result.isDenied) {
+                            document.location.href="register";
+                        } else {
+                            document.location.href="login";
+                        }
+                    });
+                };
+            </script>';
+
+        echo $isnotAccount;
+        echo '<p class="d-none text-center"></p>';
+        echo '<script>showWrongLogin();</script>';
     }
 }
 
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -50,6 +78,7 @@ if (isset($_POST['login'])) {
     <title>Login</title>
     <link rel="stylesheet" href="asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="../user/asset/dist/toastr.min.css">
     <link rel="shortcut icon" href="asset/img/SEMUDAH-LOGO.png" type="image/x-icon">
 </head>
 
@@ -74,7 +103,7 @@ if (isset($_POST['login'])) {
 
                         <button type="submit" name="login" class="btn text-white bg-semudah w-100 mb-2">Masuk</button>
                         <center>
-                            <span>Belum punya akun? <a href="register.php" class="text-decoration-none text-semudah">Daftar Sekarang</a></span>
+                            <span>Belum punya akun? <a href="register" class="text-decoration-none text-semudah">Daftar Sekarang</a></span>
                         </center>
                     </form>
 
@@ -90,8 +119,11 @@ if (isset($_POST['login'])) {
 
 
 
-
+    <script src="../user/asset/dist/toastr.min.js"></script>
     <script src="../asset/js/bootstrap.min.js"></script>
+    <script>
+        localStorage.removeItem("notificationShown");
+    </script>
 </body>
 
 </html>
