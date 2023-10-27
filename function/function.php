@@ -27,11 +27,24 @@ function tambahUser($data)
 
     $validasiEmail = mysqli_query($conn, "SELECT email FROM user WHERE email ='$email'");
     if (mysqli_fetch_assoc($validasiEmail)) {
-        echo "
-        <script>
-         alert('Email sudah terdaftar');
-        </script>
-        ";
+        $isEmailed = '
+            <script src="../user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function isEmailed() {
+                    Swal.fire({
+                        title: "Ooops!",
+                        text: "Akun sudah tersedia, Coba lagi!",
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    }).then(function() {
+                        document.location.href="../user/register";
+                    });
+                };
+            </script>';
+
+        echo $isEmailed;
+        echo '<p class="d-none text-center"></p>';
+        echo '<script>isEmailed();</script>';
         return false;
     }
 

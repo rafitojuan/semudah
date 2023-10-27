@@ -3,14 +3,43 @@
 include "../function/function.php";
 if (isset($_POST['register'])) {
     if (tambahUser($_POST)) {
-        echo "<script>
-                alert('Daftar berhasil');
-                document.location.href = 'login';
-              </script>";
+        $registered = '
+            <script src="asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function Regitered() {
+                    Swal.fire({
+                        title: "Behasil!",
+                        text: "Akun berhasil didaftarkan!",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then(function() {
+                        document.location.href="login";
+                    });
+                };
+            </script>';
+
+        echo $registered;
+        echo '<p class="d-none text-center"></p>';
+        echo '<script>Regitered();</script>';
     } else {
-        echo "<script>
-                alert('Gagal Daftar');
-              </script>";
+        // $notRegistered = '
+        //     <script src="asset/dist/sweetalert2.all.min.js"></script>
+        //     <script>
+        //         function notRegistered() {
+        //             Swal.fire({
+        //                 title: "Ooops!",
+        //                 text: "Akun gagal didaftarkan, Coba lagi!",
+        //                 icon: "error",
+        //                 confirmButtonText: "OK"
+        //             }).then(function() {
+        //                 document.location.href="register";
+        //             });
+        //         };
+        //     </script>';
+
+        // echo $notRegistered;
+        // echo '<p class="d-none text-center"></p>';
+        // echo '<script>notRegistered();</script>';
     }
 }
 ?>

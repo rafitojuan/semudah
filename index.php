@@ -1,6 +1,6 @@
 <?php
 session_start();
-unset($_SESSION['layanan']);
+$_SESSION['layanan'] = true;
 
 if (!isset($_SESSION['login'])) {
     echo '
