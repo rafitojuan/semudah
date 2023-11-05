@@ -213,7 +213,7 @@ if (!isset($_SESSION['login'])) {
 
         if (!localStorage.getItem("notificationShown")) {
 
-            toastr.info('Login berhasil, selamat datang.');
+            toastr.info('Login berhasil, selamat datang. <?= $_SESSION['nama']?>')
             localStorage.setItem("notificationShown", "true");
         };
     </script>

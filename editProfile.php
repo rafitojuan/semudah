@@ -83,13 +83,51 @@ if (!isset($_SESSION['login'])) {
             <h5 class="text-center fw-bold mt-2"><?= $_SESSION['nama']; ?></h5>
           </div>
         </div>
-        <div class="col-md-6">
-          <p class="fs-5=6 fw-bold">
-            <span style="color:#4fa3c6 !important;">|</span> Pesanan Saya
-          </p>
+        
+      </div>
+      <div class="col-md-6">
+        <h5 class="">Profil Saya</h5>
+        <div style=" border: 2px solid #003974;"></div>
+         <form action="" method="post">
+            <div class="row mb-3">
+              <div class="col-md-6 mt-3">
+                <label for="" class="form-label">Nama</label>
+                <input type="text" class="form-control border border-1 border-dark" value="<?= $user['nama']?>">
+              </div>
+              <div class="col-md-6 mt-3">
+                <label for="" class="form-label">Email</label>
+                <input type="text" class="form-control border border-1 border-dark" value="<?= $user['email']?>">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="" class="form-label">No. telp</label>
+                <input type="number" class="form-control border border-1 border-dark" value="<?= $user['telp']?>">
+              </div>
+            </div>
+            <div class="text-end">
+              <button type="submit" class="btn btn-semudah mt-3 ">Simpan</button>
+            </div>
+         </form>
+        <h5 class="mt-3">Password Saya</h5>
+        <div style=" border: 2px solid #003974;"></div>
+          <form action="" method="post">
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <label for="" class="form-label">Password</label>
+                <input type="password" class="form-control border border-1 border-dark">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <label for="" class="form-label">Konfirmasi Password</label>
+            <input type="password" class="form-control border border-1 border-dark">
+          </div>
+          <div class="text-end mt-3">
+            <button type="submit" class="btn btn-semudah">Ganti Password</button>
+          </div>
+          </form>
         </div>
-
-
       </div>
     </div>
   </div>

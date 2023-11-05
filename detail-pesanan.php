@@ -6,8 +6,11 @@ $nama = $_SESSION['nama'];
 $_SESSION['layanan'] = true;
 $idk = $_GET['k'];
 
-$timeline = query("SELECT * FROM timeline ORDER BY id_timeline ASC")[0];
+
+// $query = query("SELECT * FROM keluhan_pelanggan")[0];
+// $getLunas = $query['id_keluhan'];
 $keluhan = query("SELECT * FROM keluhan_pelanggan WHERE id_keluhan = '$idk'")[0];
+
 
 if (!isset($_SESSION['login'])) {
   if (!isset($_SESSION['login'])) {
@@ -200,7 +203,7 @@ if (!isset($_SESSION['login'])) {
                 <p class="text-darksemudah mb-0">Menunggu Pembayaran</p>
                 <div class="subtitle">
                   <p class="text-darksemudah mb-0 mb-2">Lunasi Pembayaran</p>
-                  <a href="pembayaran-awal" class="btn border-0 text-white" style="background-color:#003974 !important;">Bayar</a>
+                  <a href="pembayaran-akhir?id_lunas='.$idk.'" class="btn border-0 text-white" style="background-color:#003974 !important;">Bayar</a>
                 </div>
               </div>
             </div>
@@ -361,7 +364,7 @@ if (!isset($_SESSION['login'])) {
   <br><br>
 
   <?php
-  include 'footer/blue-footer.php.php';
+  include 'footer/blue-footer.php';
   ?>
   <script src="user/asset/js/jquery.js"></script>
   <script src="user/asset/js/timeline.min.js"></script>
