@@ -25,7 +25,7 @@
 
         <div class="auth">
           <a href="profileuser"><img class="profilpic" src="user/asset/img_user/<?= $_SESSION['foto']; ?>" width="40" height="40" alt="" style="border-radius : 50%;"></a>
-          <a class="nav-link me-4 userdashboard" aria-current="page" href="#">Dashboard saya</a>
+          <a class="nav-link me-4 userdashboard" aria-current="page" href="profileuser">Dashboard saya</a>
         </div>
       </div>
     </div>

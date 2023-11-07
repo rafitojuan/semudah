@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION['login'])) {
-  $LoginFirst = '
+    $LoginFirst = '
             <script src="../user/asset/dist/sweetalert2.all.min.js"></script>
             <script>
                 function loginAlert() {
@@ -14,7 +14,7 @@ if (!isset($_SESSION['login'])) {
                 };
             </script>';
 
-  echo $LoginFirst;
-  echo '<h6 class="text-center"></h6>';
-  echo '<script>loginAlert();</script>';
+    echo $LoginFirst;
+    echo '<h6 class="text-center"></h6>';
+    echo '<script>loginAlert();</script>';
 }

@@ -28,6 +28,73 @@ if (!isset($_SESSION['login'])) {
   echo '<script>loginAlert();</script>';
 }
 
+if (isset($_POST["update"])) {
+  if (updateProfile($_POST) > 0) {
+    $updateProfile = '
+            <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function uptProfile() {
+                    Swal.fire({
+                        title: "Berhasil!",
+                        text: "Data berhasil diperbarui!",
+                        icon: "success",
+                    }).then(function() {
+                        document.location.href="user/logout.php";
+                    });
+                };
+            </script>';
+
+    echo $updateProfile;
+    echo '<p class="text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+    echo '<script>uptProfile();</script>';
+  } else {
+    echo "<script>
+    alert('data gagal diedit')  
+    document.location.href = 'editProfile.php';
+    </script>";
+  }
+}
+
+if(isset($_POST['updatePass'])){
+  if(updatePassword($_POST)>0){
+    $updatePass = '
+    <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function uptProfile() {
+            Swal.fire({
+                title: "Berhasil!",
+                text: "Password berhasil diperbarui!",
+                icon: "success",
+            }).then(function() {
+                document.location.href="profileuser";
+            });
+        };
+    </script>';
+
+echo $updatePass;
+echo '<p class="text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+echo '<script>uptProfile();</script>';
+  }else{
+    $updatePass = '
+    <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function uptProfile() {
+            Swal.fire({
+                title: "Gagal",
+                text: "Konfirmasi password tidak sesuai!",
+                icon: "error",
+            }).then(function() {
+                document.location.href="editProfile.php";
+            });
+        };
+    </script>';
+
+echo $updatePass;
+echo '<p class="text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+echo '<script>uptProfile();</script>';
+  }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +109,6 @@ if (!isset($_SESSION['login'])) {
   <link rel="stylesheet" href="user/asset/css/bootstrap.min.css">
   <link rel="stylesheet" href="user/asset/css/style.css">
   <link rel="stylesheet" href="user/asset/dist/sweetalert2.min.css">
-  <!-- <link rel="stylesheet" href="user/asset/css/timeline.min.css"> -->
   <link href="user/asset/aos/aos.css" rel="stylesheet">
   <style>
     .navbar {
@@ -62,7 +128,7 @@ if (!isset($_SESSION['login'])) {
   <div class="hero position-relative" data-aos="fade" data-aos-duration="2000">
     <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
     <?php
-    include 'component/navbar-login.php';
+    include 'component/navbar-layanan.php';
     ?>
 
   </div>
@@ -83,53 +149,55 @@ if (!isset($_SESSION['login'])) {
             <h5 class="text-center fw-bold mt-2"><?= $_SESSION['nama']; ?></h5>
           </div>
         </div>
-        
+
       </div>
       <div class="col-md-6">
         <h5 class="">Profil Saya</h5>
         <div style=" border: 2px solid #003974;"></div>
-         <form action="" method="post">
-            <div class="row mb-3">
-              <div class="col-md-6 mt-3">
-                <label for="" class="form-label">Nama</label>
-                <input type="text" class="form-control border border-1 border-dark" value="<?= $user['nama']?>">
-              </div>
-              <div class="col-md-6 mt-3">
-                <label for="" class="form-label">Email</label>
-                <input type="text" class="form-control border border-1 border-dark" value="<?= $user['email']?>">
-              </div>
+        <form action="" method="post" id="form1">
+          <input type="hidden" name="id" id="" value="<?= $user['id_user'] ?>">
+          <div class="row mb-3">
+            <div class="col-md-6 mt-3">
+              <label for="" class="form-label">Nama</label>
+              <input type="text" class="form-control border border-1 border-dark" name="nama" value="<?= $user['nama'] ?>">
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <label for="" class="form-label">No. telp</label>
-                <input type="number" class="form-control border border-1 border-dark" value="<?= $user['telp']?>">
-              </div>
+            <div class="col-md-6 mt-3">
+              <label for="" class="form-label">Email</label>
+              <input type="text" class="form-control border border-1 border-dark" name="email" value="<?= $user['email'] ?>">
             </div>
-            <div class="text-end">
-              <button type="submit" class="btn btn-semudah mt-3 ">Simpan</button>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="" class="form-label">No. telp</label>
+              <input type="number" class="form-control border border-1 border-dark" name="telp" value="<?= $user['telp'] ?>">
             </div>
-         </form>
+          </div>
+          <div class="text-end">
+            <button type="submit" class="btn btn-semudah mt-3" name="update" id="uptUsr" onclick="return confirm('Anda akan login ulang!');">Simpan</button>
+          </div>
+        </form>
         <h5 class="mt-3">Password Saya</h5>
         <div style=" border: 2px solid #003974;"></div>
-          <form action="" method="post">
-            <div class="row mt-3">
-              <div class="col-md-12">
-                <label for="" class="form-label">Password</label>
-                <input type="password" class="form-control border border-1 border-dark">
-              </div>
+        <form action="" method="post">
+          <div class="row mt-3">
+            <input type="hidden" name="id" value="<?=$user['id_user']?>">
+            <div class="col-md-12">
+              <label for="" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control border border-1 border-dark">
             </div>
-            <div class="row mt-3">
-              <div class="col-md-12">
-                <label for="" class="form-label">Konfirmasi Password</label>
-            <input type="password" class="form-control border border-1 border-dark">
           </div>
-          <div class="text-end mt-3">
-            <button type="submit" class="btn btn-semudah">Ganti Password</button>
-          </div>
-          </form>
-        </div>
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <label for="" class="form-label">Konfirmasi Password</label>
+              <input type="password" name="konfir" class="form-control border border-1 border-dark">
+            </div>
+            <div class="text-end mt-3">
+              <button type="submit" name="updatePass" class="btn btn-semudah">Ganti Password</button>
+            </div>
+        </form>
       </div>
     </div>
+  </div>
   </div>
 
 
@@ -147,6 +215,11 @@ if (!isset($_SESSION['login'])) {
   <script>
     AOS.init();
   </script>
+
+  <script>
+
+  </script>
+
   <script>
     $('.loggedOut').on('click', function(e) {
       e.preventDefault()

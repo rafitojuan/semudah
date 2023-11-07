@@ -62,7 +62,7 @@ if (!isset($_SESSION['login'])) {
     <div class="hero position-relative" data-aos="fade" data-aos-duration="2000">
         <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
         <?php
-        include 'component/navbar-login.php';
+        include 'component/navbar-layanan.php';
         ?>
 
     </div>

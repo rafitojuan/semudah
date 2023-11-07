@@ -19,10 +19,11 @@ function tambahUser($data)
 {
     global $conn;
 
-    $nama = $data['nama'];
-    $email = $data['email'];
-    $password = $data['password'];
-    $telp = $data['telp'];
+    $nama =  htmlspecialchars($data['nama']);
+    $email = htmlspecialchars($data['email']);
+    $password = htmlspecialchars($data['password']);
+    $konfir = htmlspecialchars($data['konfir']);
+    $telp =  htmlspecialchars($data['telp']);
     $gambar = uploadGambarUser();
 
     $validasiEmail = mysqli_query($conn, "SELECT email FROM user WHERE email ='$email'");
@@ -41,6 +42,51 @@ function tambahUser($data)
                     });
                 };
             </script>';
+
+        echo $isEmailed;
+        echo '<p class="d-none text-center"></p>';
+        echo '<script>isEmailed();</script>';
+        return false;
+    }
+
+    $validasiNama = mysqli_query($conn, "SELECT nama FROM user WHERE nama = '$nama'");
+    if (mysqli_fetch_assoc($validasiNama)) {
+        $isEmailed = '
+            <script src="../user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function isEmailed() {
+                    Swal.fire({
+                        title: "Ooops!",
+                        text: "Nama sudah tersedia, Coba lagi!",
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    }).then(function() {
+                        document.location.href="../user/register";
+                    });
+                };
+            </script>';
+
+        echo $isEmailed;
+        echo '<p class="d-none text-center"></p>';
+        echo '<script>isEmailed();</script>';
+        return false;
+    }
+
+    if ($password != $konfir) {
+        $isEmailed = '
+        <script src="../user/asset/dist/sweetalert2.all.min.js"></script>
+        <script>
+            function isEmailed() {
+                Swal.fire({
+                    title: "Ooops!",
+                    text: "Konfirmasi Password tidak sesuai, Coba lagi!",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                }).then(function() {
+                    document.location.href="../user/register";
+                });
+            };
+        </script>';
 
         echo $isEmailed;
         echo '<p class="d-none text-center"></p>';
@@ -92,11 +138,11 @@ function addLayanan($data)
     global $conn;
     $nama = $_SESSION['nama'];
     $telp = $_SESSION['telp'];
-    $merk = $data['merk'];
-    $spek = $data['spesifikasi'];
-    $layanan = $data['layanan'];
-    $alamat = $data['alamat'];
-    $tgl_kunjungan = $data['tgl_kunjungan'];
+    $merk = htmlspecialchars($data['merk']);
+    $spek = htmlspecialchars($data['spesifikasi']);
+    $layanan = htmlspecialchars($data['layanan']);
+    $alamat = htmlspecialchars($data['alamat']);
+    $tgl_kunjungan = htmlspecialchars($data['tgl_kunjungan']);
 
     mysqli_query($conn, "INSERT INTO keluhan_pelanggan VALUES('','$nama','$merk','$spek','','$layanan' ,'','','$tgl_kunjungan','$alamat','$telp','','','','','','','','')");
     return mysqli_affected_rows($conn);
@@ -225,6 +271,7 @@ function uploadBuktiPembayaranDP()
 
     return $namaFileBaru;
 }
+
 function uploadBuktiPembayaranLunas()
 {
     global $conn;
@@ -250,4 +297,62 @@ function uploadBuktiPembayaranLunas()
     move_uploaded_file($tmp_name, "user/asset/bukti-transaksi/lunas/" . $namaFileBaru);
 
     return $namaFileBaru;
+}
+
+// UPDATE PROFILE
+function updateProfile($data)
+{
+    global $conn;
+    $id = $data['id'];
+    $ses = $_SESSION["nama"];
+    $nama = htmlspecialchars($data['nama']);
+    $email = htmlspecialchars($data['email']);
+    $telp = htmlspecialchars($data['telp']);
+
+    // $query = "UPDATE user SET nama = '$nama', email = '$email',  telp = '$telp' WHERE id_user = '$id'";
+    // $query .= "UPDATE keluhan_pelanggan SET nama_pelanggan  = '$nama' WHERE nama_pelanggan = '$ses' ";
+
+    // if (mysqli_multi_query($conn, $query)) {
+    //     return mysqli_affected_rows($conn);
+    // }
+    $sql = "UPDATE user SET nama = '$nama', email = '$email', telp = '$telp' WHERE id_user = '$id'; UPDATE keluhan_pelanggan SET nama_pelanggan = '$nama' WHERE nama_pelanggan = '$ses'";
+    mysqli_multi_query($conn, $sql);
+    return mysqli_affected_rows($conn);
+    // mysqli_query($conn, "UPDATE keluhan_pelanggan SET nama_pelanggan = '$nama' WHERE nama_pelanggan = '$ses'");
+}
+
+function updatePassword($data)
+{
+    global $conn;
+
+    $id = $data['id'];
+    $password = htmlspecialchars($data['password']);
+    $konfir = htmlspecialchars($data['konfir']);
+
+    if ($password !== $konfir) {
+        $isEmailed = '
+        <script src="../user/asset/dist/sweetalert2.all.min.js"></script>
+        <script>
+            function isEmailed() {
+                Swal.fire({
+                    title: "Ooops!",
+                    text: "Konfirmasi tidak sesuai, Update gagal!",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                }).then(function() {
+                    document.location.href="../user/register";
+                });
+            };
+        </script>';
+
+        echo $isEmailed;
+        echo '<p class="d-none text-center"></p>';
+        echo '<script>isEmailed();</script>';
+        return false;
+    }
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    mysqli_query($conn, "UPDATE user SET password = '$password' WHERE id_user = '$id'");
+    return mysqli_affected_rows($conn);
 }

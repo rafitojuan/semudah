@@ -25,12 +25,24 @@ if (!isset($_SESSION['login'])) {
 
 if (isset($_POST['upload'])) {
     $gambar = uploadBuktiPembayaranDP();
-    $query = mysqli_query($conn, "UPDATE keluhan_pelanggan SET bukti_dp = '$gambar' WHERE id_keluhan='$id'"); {
-        echo "<script>
-               alert('bukti berhasil dikirim')
-               document.location.href = 'pembayaran-awal?id_dp=$id';
-               </script>   
-            ";
+    $query = mysqli_query($conn, "UPDATE keluhan_pelanggan SET bukti_dp = '$gambar', status = 2 WHERE id_keluhan='$id'"); {
+        $buktiPemb = '
+            <script src="user/asset/dist/sweetalert2.all.min.js"></script>
+            <script>
+                function payAlert() {
+                    Swal.fire({
+                        title: "Berhasil!",
+                        text: "Bukti pembayaran terkirim, harap tunggu teknisi kami!",
+                        icon: "success",
+                    }).then(function() {
+                        document.location.href="profileuser";
+                    });
+                };
+            </script>';
+
+        echo $buktiPemb;
+        echo '<p class="text-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 1000;"></p>';
+        echo '<script>payAlert();</script>';
     }
 }
 

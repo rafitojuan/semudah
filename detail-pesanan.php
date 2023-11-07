@@ -48,11 +48,16 @@ if (!isset($_SESSION['login'])) {
   <link rel="shortcut icon" href="user/asset/img/SEMUDAH-LOGO.png" type="image/x-icon">
   <link rel="stylesheet" href="user/asset/css/bootstrap.min.css">
   <link rel="stylesheet" href="user/asset/css/style.css">
-  <!-- <link rel="stylesheet" href="user/asset/css/timeline.min.css"> -->
   <link href="user/asset/aos/aos.css" rel="stylesheet">
   <style>
     .navbar {
       background-color: #003974 !important;
+    }
+
+    @media (max-width: 768px) {
+      .imageMobile {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -62,7 +67,7 @@ if (!isset($_SESSION['login'])) {
   <div class="hero position-relative" data-aos="fade" data-aos-duration="2000">
     <div class="position-absolute top-0 end-0 bottom-0 start-0" id="main-hero"></div>
     <?php
-    include 'component/navbar-login.php';
+    include 'component/navbar-layanan.php';
     ?>
 
   </div>
@@ -78,7 +83,7 @@ if (!isset($_SESSION['login'])) {
           <span style="color:#4fa3c6 !important;">|</span> Detail Pesanan Saya
         </p>
         <div class="timeline d-flex">
-          <div class="img-task me-3">
+          <div class="imageMobile img-task me-3">
             <img src="user/asset/img_user/64f2e14276e62.png" class="img-fluid rounded" style="width:20rem; height:34rem">
           </div>
           <div class="line">
@@ -86,10 +91,11 @@ if (!isset($_SESSION['login'])) {
               <h5 class="fw-bold">Pesanan <?= $keluhan['merek']  ?></h5>
             </div>
             <?php if ($keluhan['status'] == 0) {
-              echo '<div class="line1 d-flex align-items-center">
+              echo '
+              <div class="line1 d-flex align-items-center">
               <div class="rounded-circle" style="background-color:#003974 !important; width:1rem; height:1rem;"></div>
               <div class="task-title ms-3">
-                <p class="text-darksemudah mb-0">Konfirmasi</p>
+                <p   class="text-darksemudah mb-0">Konfirmasi</p>
                 <div class="subtitle">
                   <p class="text-darksemudah mb-0">Pesanan Anda Sedang di Konfirmasi
                   </p>
@@ -98,6 +104,33 @@ if (!isset($_SESSION['login'])) {
             </div>
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>';
             } elseif ($keluhan['status'] == 1) {
+              echo '
+              <div class="line1 d-flex align-items-center">
+              <div class="rounded-circle" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+              <div class="task-title text-muted ms-3">
+                <p   class="text-muted mb-0">Konfirmasi</p>
+                <div class="subtitle text-muted">
+                  <p class="text-muted mb-0">Pesanan Anda Sedang di Konfirmasi
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+              <div class="line2 d-flex align-items-center">
+                <div class="rounded-circle bg-secondary" style="background-color:#003974 !important; width:1rem; height:1rem;"></div>
+                <div class="task-title ms-3">
+                  <p class="text-darksemudah mb-0">Pembayaran DP</p>
+                  <div class="subtitle">
+                    <p class="text-darksemudah mb-0 mb-2">Lakukan Pembayaran</p>
+                    <a href="pembayaran-awal?id_dp=' . $idk . '" class="btn border-0 text-white' . ($keluhan['status'] != 1 ? 'disabled' : '') . '" style="background-color:#003974 !important;">Bayar</a>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+              ';
+            } elseif ($keluhan['status'] == 2) {
               echo '<div class="line1 d-flex align-items-center">
               <div class="rounded-circle" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
               <div class="task-title ms-3">
@@ -112,6 +145,19 @@ if (!isset($_SESSION['login'])) {
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
 
             <div class="line2 d-flex align-items-center">
+                <div class="rounded-circle bg-secondary" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+                <div class="task-title ms-3">
+                  <p class="text-muted mb-0">Pembayaran DP</p>
+                  <div class="subtitle">
+                    <p class="text-muted mb-0 mb-2">Lakukan Pembayaran</p>
+                    <a href="pembayaran-awal?id_dp=' . $idk . '" class="btn border-0 text-white disabled" style="background-color:#003974 !important;">Bayar</a>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+            <div class="line2 d-flex align-items-center">
               <div class="rounded-circle bg-secondary" style="background-color:#003974 !important; width:1rem; height:1rem;"></div>
               <div class="task-title ms-3">
                 <p class="text-darksemudah mb-0">Sedang Dijemput</p>
@@ -122,7 +168,7 @@ if (!isset($_SESSION['login'])) {
             </div>
 
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>';
-            } elseif ($keluhan['status'] == 2) {
+            } elseif ($keluhan['status'] == 3) {
               echo '<div class="line1 d-flex align-items-center">
               <div class="rounded-circle" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
               <div class="task-title ms-3">
@@ -135,6 +181,19 @@ if (!isset($_SESSION['login'])) {
             </div>
 
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+            <div class="line2 d-flex align-items-center">
+                <div class="rounded-circle bg-secondary" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+                <div class="task-title ms-3">
+                  <p class="text-muted mb-0">Pembayaran DP</p>
+                  <div class="subtitle">
+                    <p class="text-muted mb-0 mb-2">Lakukan Pembayaran</p>
+                    <a href="pembayaran-awal?id_dp=' . $idk . '" class="btn border-0 text-white disabled" style="background-color:#003974 !important;">Bayar</a>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
 
             <div class="line2 d-flex align-items-center">
               <div class="rounded-circle bg-secondary" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
@@ -159,7 +218,7 @@ if (!isset($_SESSION['login'])) {
             </div>
 
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>';
-            } elseif ($keluhan['status'] == 3) {
+            } elseif ($keluhan['status'] == 4) {
               echo '<div class="line1 d-flex align-items-center">
               <div class="rounded-circle" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
               <div class="task-title ms-3">
@@ -172,6 +231,19 @@ if (!isset($_SESSION['login'])) {
             </div>
 
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+            <div class="line2 d-flex align-items-center">
+                <div class="rounded-circle bg-secondary" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+                <div class="task-title ms-3">
+                  <p class="text-muted mb-0">Pembayaran DP</p>
+                  <div class="subtitle">
+                    <p class="text-muted mb-0 mb-2">Lakukan Pembayaran</p>
+                    <a href="pembayaran-awal?id_dp=' . $idk . '" class="btn border-0 text-white disabled" style="background-color:#003974 !important;">Bayar</a>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
 
             <div class="line2 d-flex align-items-center">
               <div class="rounded-circle bg-secondary" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
@@ -203,14 +275,14 @@ if (!isset($_SESSION['login'])) {
                 <p class="text-darksemudah mb-0">Menunggu Pembayaran</p>
                 <div class="subtitle">
                   <p class="text-darksemudah mb-0 mb-2">Lunasi Pembayaran</p>
-                  <a href="pembayaran-akhir?id_lunas='.$idk.'" class="btn border-0 text-white" style="background-color:#003974 !important;">Bayar</a>
+                  <a href="pembayaran-akhir?id_lunas=' . $idk . '" class="btn border-0 text-white" style="background-color:#003974 !important;">Bayar</a>
                 </div>
               </div>
             </div>
 
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
             ';
-            } elseif ($keluhan['status'] == 4) {
+            } elseif ($keluhan['status'] == 5) {
               echo '<div class="line1 d-flex align-items-center">
               <div class="rounded-circle" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
               <div class="task-title ms-3">
@@ -223,6 +295,19 @@ if (!isset($_SESSION['login'])) {
             </div>
 
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+            <div class="line2 d-flex align-items-center">
+                <div class="rounded-circle bg-secondary" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+                <div class="task-title ms-3">
+                  <p class="text-muted mb-0">Pembayaran DP</p>
+                  <div class="subtitle">
+                    <p class="text-muted mb-0 mb-2">Lakukan Pembayaran</p>
+                    <a href="pembayaran-awal?id_dp=' . $idk . '" class="btn border-0 text-white disabled" style="background-color:#003974 !important;">Bayar</a>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
 
             <div class="line2 d-flex align-items-center">
               <div class="rounded-circle bg-secondary" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
@@ -273,7 +358,7 @@ if (!isset($_SESSION['login'])) {
 
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
             ';
-            } elseif ($keluhan['status'] == 5) {
+            } elseif ($keluhan['status'] == 6) {
               echo '<div class="line1 d-flex align-items-center">
               <div class="rounded-circle" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
               <div class="task-title ms-3">
@@ -286,6 +371,19 @@ if (!isset($_SESSION['login'])) {
             </div>
 
             <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
+
+            <div class="line2 d-flex align-items-center">
+                <div class="rounded-circle bg-secondary" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
+                <div class="task-title ms-3">
+                  <p class="text-muted mb-0">Pembayaran DP</p>
+                  <div class="subtitle">
+                    <p class="text-muted mb-0 mb-2">Lakukan Pembayaran</p>
+                    <a href="pembayaran-awal?id_dp=' . $idk . '" class="btn border-0 text-white disabled" style="background-color:#003974 !important;">Bayar</a>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="line ms-2" style="width: 2px; background-color: #ccc; height: 50px;"></div>
 
             <div class="line2 d-flex align-items-center">
               <div class="rounded-circle bg-secondary" style="background-color:#ccc !important; width:1rem; height:1rem;"></div>
@@ -373,6 +471,16 @@ if (!isset($_SESSION['login'])) {
   <script src="user/asset/aos/aos.js"></script>
   <script>
     AOS.init();
+  </script>
+
+  <script>
+    const button1 = document.getElementById("button");
+
+    const disableButton = () => {
+      button1.disabled = true;
+    };
+
+    button1.addEventListener("click", disableButton);
   </script>
 </body>
 

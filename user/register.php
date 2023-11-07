@@ -83,6 +83,9 @@ if (isset($_POST['register'])) {
                         <div class="Password mb-4">
                             <input type="password" name="password" id="" class="form-control border-input  m-auto" placeholder="Password" required>
                         </div>
+                        <div class="Konfir Password mb-4">
+                            <input type="password" name="konfir" id="" class="form-control border-input  m-auto" placeholder="Konfirmasi Password" required>
+                        </div>
                         <div class="foto">
                             <label for="" class="form-label">Masukkan Foto anda</label>
                             <input type="file" name="foto" class="form-control border-input mb-4" id="" required>
