@@ -276,6 +276,23 @@
   background-attachment: fixed;
 }
 
+.flex {
+  display: flex;
+}
+.error1 {
+  font-size: 100px;
+}
+
+.imgeror {
+  margin-top: 100px;
+  width: 600px;
+}
+
+.eror-text {
+  margin-top: 170px;
+  margin-left: 60px;
+}
+
 /* KEYFRAMES AREA!!! */
 @keyframes navScrolled {
   0% {
@@ -343,6 +360,22 @@
   .dana {
     margin-top: 15px !important;
   }
+
+  .error1 {
+    font-size: 40px;
+  }
+
+  .imgeror {
+    margin-top: 90px;
+    width: 300px;
+    margin-left: -370px;
+  }
+
+  .eror-text {
+    margin-top: 300px;
+    margin-left: 5px;
+    font-size: 10px;
+  }
 }
 
 .file-upload {
@@ -373,3 +406,4 @@
   content: url("../img/icon-img.png");
   margin-left: 10px;
 }
+
